@@ -12,7 +12,7 @@ const themes: { id: ThemeMode; label: string; icon: typeof Moon }[] = [
 ];
 
 export default function ThemeToggle() {
-  const [currentTheme, setCurrentTheme] = useState<ThemeMode>("dark-cinema");
+  const [currentTheme, setCurrentTheme] = useState<ThemeMode>("light-editorial");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function ThemeToggle() {
     if (saved && ["dark-cinema", "light-editorial", "bold-color"].includes(saved)) {
       setTheme(saved);
     } else {
-      setTheme("dark-cinema");
+      setTheme("light-editorial");
     }
   }, []);
 
@@ -53,7 +53,7 @@ export default function ThemeToggle() {
   if (!mounted) {
     return (
       <div className="w-8 h-8 rounded-full border border-border-subtle bg-bg-card flex items-center justify-center opacity-60">
-        <Moon className="w-3.5 h-3.5 text-accent-gold" />
+        <Sun className="w-3.5 h-3.5 text-accent-gold" />
       </div>
     );
   }

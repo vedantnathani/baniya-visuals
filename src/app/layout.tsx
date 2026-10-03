@@ -119,7 +119,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" data-theme="light-editorial">
       <head>
         <script
           type="application/ld+json"

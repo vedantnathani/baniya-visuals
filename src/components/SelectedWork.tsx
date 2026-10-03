@@ -164,20 +164,20 @@ export default function SelectedWork() {
               </span>
             </div>
 
-            {/* Poster Canvas */}
+            {/* Active Video Canvas */}
             <div
               className="relative aspect-[9/16] w-full rounded-[calc(2.2rem-0.75rem)] overflow-hidden bg-black group cursor-pointer"
-              data-cursor="play"
               onClick={() => setModalProject(activeProject)}
             >
-              <Image
-                key={activeProject.id}
-                src={activeProject.posterUrl}
-                alt={activeProject.title}
-                fill
-                sizes="420px"
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                priority
+              <video
+                key={activeProject.videoUrl}
+                src={activeProject.videoUrl}
+                poster={activeProject.posterUrl}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />

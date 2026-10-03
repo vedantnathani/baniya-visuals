@@ -1,6 +1,5 @@
 import IntroPreloader from "@/components/IntroPreloader";
 import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -11,7 +10,6 @@ import PricingSection from "@/components/PricingSection";
 import AboutSection from "@/components/AboutSection";
 import ScrollNotes from "@/components/ScrollNotes";
 import ContactSection from "@/components/ContactSection";
-import NowWidget from "@/components/NowWidget";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -19,7 +17,6 @@ export default function Home() {
     <SmoothScroll>
       <ScrollProgressBar />
       <IntroPreloader />
-      <CustomCursor />
       <Navbar />
 
       <main className="relative z-10 flex flex-col min-h-screen">
@@ -33,7 +30,6 @@ export default function Home() {
         <ContactSection />
       </main>
 
-      <NowWidget />
       <Footer />
     </SmoothScroll>
   );

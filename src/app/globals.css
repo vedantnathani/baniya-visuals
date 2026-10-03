@@ -58,16 +58,31 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100dvh;
-  overflow-x: hidden;
+  overflow-x: clip;
   transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }

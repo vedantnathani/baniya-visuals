@@ -72,17 +72,17 @@ export default function IntroPreloader({ onComplete }: IntroPreloaderProps) {
             y: "-100%",
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="fixed inset-0 z-[10000] bg-[#0A0A0A] text-[#F2F0EB] flex flex-col justify-between p-6 sm:p-12 select-none overflow-hidden"
+          className="fixed inset-0 z-[10000] bg-bg-primary text-fg-primary flex flex-col justify-between p-6 sm:p-12 select-none overflow-hidden"
         >
           {/* Top Bar */}
-          <div className="flex justify-between items-center text-xs font-mono text-[#9E9B93]">
+          <div className="flex justify-between items-center text-xs font-mono text-fg-muted">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping" />
+              <span className="w-2 h-2 rounded-full bg-accent-gold animate-ping" />
               <span className="uppercase tracking-widest text-[10px]">LOADING SHOWREEL · @baniya_visuals</span>
             </div>
             <button
               onClick={skipIntro}
-              className="px-3 py-1 rounded-full border border-white/10 hover:border-[#D4AF37] text-[10px] uppercase tracking-widest hover:text-[#D4AF37] transition-colors"
+              className="px-3 py-1 rounded-full border border-border-subtle hover:border-accent-gold text-[10px] uppercase tracking-widest hover:text-accent-gold transition-colors"
             >
               Skip Intro [ESC]
             </button>
@@ -94,7 +94,7 @@ export default function IntroPreloader({ onComplete }: IntroPreloaderProps) {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="font-mono text-xs uppercase tracking-[0.3em] text-[#D4AF37] mb-3"
+              className="font-mono text-xs uppercase tracking-[0.3em] text-accent-gold mb-3"
             >
               GOVIND MADDESHIYA · @BANIYA_VISUALS
             </motion.p>
@@ -102,7 +102,7 @@ export default function IntroPreloader({ onComplete }: IntroPreloaderProps) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="font-serif text-3xl sm:text-5xl md:text-6xl font-light tracking-wide text-[#F2F0EB]"
+              className="font-serif text-3xl sm:text-5xl md:text-6xl font-light tracking-wide text-fg-primary"
             >
               BANIYA VISUALS WORKS
             </motion.h1>
@@ -111,18 +111,18 @@ export default function IntroPreloader({ onComplete }: IntroPreloaderProps) {
           {/* Bottom Counter & Progress */}
           <div className="w-full max-w-xl mx-auto flex flex-col gap-3">
             <div className="flex justify-between items-end font-mono">
-              <span className="text-xs uppercase tracking-widest text-[#9E9B93]">
+              <span className="text-xs uppercase tracking-widest text-fg-muted">
                 Cinematic Portfolio
               </span>
-              <span className="text-4xl sm:text-5xl font-light text-[#D4AF37]">
+              <span className="text-4xl sm:text-5xl font-light text-accent-gold">
                 {Math.floor(count).toString().padStart(3, "0")}
               </span>
             </div>
 
             {/* Hairline Progress Bar */}
-            <div className="w-full h-[1px] bg-white/10 relative overflow-hidden">
+            <div className="w-full h-[1px] bg-border-subtle relative overflow-hidden">
               <motion.div
-                className="absolute inset-y-0 left-0 bg-[#D4AF37]"
+                className="absolute inset-y-0 left-0 bg-accent-gold"
                 style={{ width: `${count}%` }}
               />
             </div>

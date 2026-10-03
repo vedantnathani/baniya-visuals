@@ -6,6 +6,7 @@ export interface Project {
   description: string;
   techniques: string;
   instagramUrl: string;
+  videoUrl: string;
   posterUrl: string;
   year: string;
   aspectRatio: string;
@@ -23,6 +24,7 @@ export const projectsData: Project[] = [
     description: "High-energy event recap featuring dynamic student crowd moments, speech highlights, and rhythm sync at JPS School Dudahi.",
     techniques: "Beat-sync cuts, energetic speed ramps, crowd audio enhancement",
     instagramUrl: "https://www.instagram.com/reel/Dc8InDqCYsK/?stkn=ejBpd2Q5N3BpbjJt",
+    videoUrl: "/assets/videos/reel-2.mp4",
     posterUrl: "/assets/reels/reel-2.jpg",
     year: "2026",
     aspectRatio: "9:16",
@@ -38,6 +40,7 @@ export const projectsData: Project[] = [
     description: "Commercial reel showcasing the vibrant ambiance, warm lighting, and culinary hospitality at Tamkuhi Road.",
     techniques: "Smooth camera motion, appetizing color contrast, commercial pacing",
     instagramUrl: "https://www.instagram.com/reel/DdsVlN7vvy9/?stkn=MXdsZzJpbGk4MnZ1Yg==",
+    videoUrl: "/assets/videos/reel-1.mp4",
     posterUrl: "/assets/reels/reel-1.jpg",
     year: "2026",
     aspectRatio: "9:16",
@@ -53,6 +56,7 @@ export const projectsData: Project[] = [
     description: "Aesthetic food & beverage presentation with fast hook cuts and trending music synchronization.",
     techniques: "Macro food close-ups, warm grade, trending hook transitions",
     instagramUrl: "https://www.instagram.com/reel/DWJ5zR5AdUG/",
+    videoUrl: "/assets/videos/reel-5.mp4",
     posterUrl: "/assets/reels/reel-5.jpg",
     year: "2026",
     aspectRatio: "9:16",
@@ -68,6 +72,7 @@ export const projectsData: Project[] = [
     description: "Spiritual cinematic storytelling with emotional visual build-up, divine transitions, and devotional resonance.",
     techniques: "Slow-motion devotional build, golden flare lighting, emotional audio mix",
     instagramUrl: "https://www.instagram.com/reel/DVXwke9kWoe/",
+    videoUrl: "/assets/videos/reel-6.mp4",
     posterUrl: "/assets/reels/reel-6.jpg",
     year: "2026",
     aspectRatio: "9:16",
@@ -83,6 +88,7 @@ export const projectsData: Project[] = [
     description: "Heritage architecture, moody atmospheric lighting, and architectural symmetry cut to beat.",
     techniques: "Symmetrical framing, historic architectural reveal, bass drop sync",
     instagramUrl: "https://www.instagram.com/reel/DcoObeMMGcu/",
+    videoUrl: "/assets/videos/reel-4.mp4",
     posterUrl: "/assets/reels/reel-4.jpg",
     year: "2025",
     aspectRatio: "9:16",
@@ -98,6 +104,7 @@ export const projectsData: Project[] = [
     description: "Cinematic interior flow, warm amber tones, and subtle speed ramping for social-first promotion.",
     techniques: "Velocity curve pacing, ambient restaurant sounds, warm grading",
     instagramUrl: "https://www.instagram.com/reel/Dc6JzwmqKvD/",
+    videoUrl: "/assets/videos/reel-3.mp4",
     posterUrl: "/assets/reels/reel-3.jpg",
     year: "2025",
     aspectRatio: "9:16",

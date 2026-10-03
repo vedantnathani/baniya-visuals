@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Baniya Visuals Works — Launch Film</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #F7F5F0;
+        color: #121212;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        background: #F7F5F0;
+        overflow: hidden;
+      }
+
+      /* Noise Overlay */
+      .grain {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.035;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        z-index: 99;
+      }
+
+      /* Top Header */
+      .editorial-header {
+        position: absolute;
+        top: 60px;
+        left: 80px;
+        right: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #57544C;
+        border-bottom: 1px solid rgba(18, 18, 18, 0.12);
+        padding-bottom: 24px;
+        z-index: 50;
+      }
+      .brand-dot {
+        width: 8px;
+        height: 8px;
+        background: #8F6809;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 12px;
+      }
+
+      /* SCENE CONTAINERS */
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        padding: 120px 80px 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      /* SCENE 1: HOOK */
+      #scene-1 {
+        text-align: center;
+      }
+      .hook-tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 16px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #8F6809;
+        margin-bottom: 32px;
+      }
+      .hook-title-1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 88px;
+        font-weight: 300;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: #57544C;
+        margin-bottom: 16px;
+      }
+      .hook-title-2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 96px;
+        font-weight: 600;
+        font-style: italic;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: #121212;
+      }
+      .hook-rule {
+        width: 140px;
+        height: 2px;
+        background: #8F6809;
+        margin: 40px auto 0;
+      }
+
+      /* SCENE 2: AUTHORITY & METRICS */
+      #scene-2 {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 140px 140px 100px;
+      }
+      .author-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        width: 440px;
+      }
+      .author-img-wrap {
+        width: 320px;
+        height: 380px;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 2px solid #8F6809;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        background: #ECE8DF;
+      }
+      .author-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .author-name {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 36px;
+        font-weight: 600;
+        color: #121212;
+      }
+      .author-role {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        letter-spacing: 0.2em;
+        color: #8F6809;
+        text-transform: uppercase;
+      }
+      .metrics-col {
+        flex: 1;
+        max-width: 880px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        padding-left: 80px;
+      }
+      .wordmark-large {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 76px;
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: #121212;
+      }
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 16px;
+      }
+      .metric-box {
+        background: #ECE8DF;
+        border: 1px solid rgba(18, 18, 18, 0.12);
+        border-radius: 20px;
+        padding: 32px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .metric-num {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 64px;
+        font-weight: 600;
+        color: #8F6809;
+        line-height: 1;
+      }
+      .metric-lbl {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #57544C;
+      }
+
+      /* SCENE 3: SHOWCASE CARDS */
+      #scene-3 {
+        padding: 120px 80px 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .showcase-heading {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .showcase-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 60px;
+        font-weight: 400;
+        color: #121212;
+      }
+      .showcase-sub {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #8F6809;
+        margin-top: 8px;
+      }
+      .reels-row {
+        display: flex;
+        gap: 36px;
+        justify-content: center;
+        align-items: center;
+      }
+      .reel-card {
+        width: 320px;
+        height: 540px;
+        border-radius: 28px;
+        overflow: hidden;
+        background: #121212;
+        border: 2px solid rgba(184, 134, 11, 0.4);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+      }
+      .reel-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .reel-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
+      }
+      .reel-content {
+        position: relative;
+        z-index: 10;
+        color: #FFFFFF;
+      }
+      .reel-badge {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #E5C158;
+        background: rgba(0,0,0,0.6);
+        padding: 4px 10px;
+        border-radius: 20px;
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+      .reel-name {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.15;
+      }
+
+      /* SCENE 4: FINALE */
+      #scene-4 {
+        text-align: center;
+        padding: 120px 100px;
+      }
+      .finale-super {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 16px;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: #8F6809;
+        margin-bottom: 24px;
+      }
+      .finale-statement {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 104px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: #121212;
+        margin-bottom: 28px;
+      }
+      .finale-sub {
+        font-size: 26px;
+        font-weight: 300;
+        color: #57544C;
+        max-width: 900px;
+        margin: 0 auto 48px;
+        line-height: 1.4;
+      }
+      .cta-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        background: #8F6809;
+        color: #FFFFFF;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 20px 48px;
+        border-radius: 999px;
+        box-shadow: 0 16px 36px rgba(184, 134, 11, 0.3);
+      }
+
+      /* Time indicator */
+      .time-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        background: #B8860B;
+        width: 0%;
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="20"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="grain"></div>
+
+      <!-- Persistent Header -->
+      <div class="editorial-header">
+        <div>
+          <span class="brand-dot"></span>
+          <span>BANIYA VISUALS WORKS</span>
+        </div>
+        <div>
+          <span>EDITED BY GOVIND MADDESHIYA · 8+ YRS</span>
+        </div>
+      </div>
+
+      <!-- SCENE 1: HOOK (0s - 4.5s) -->
+      <div id="scene-1" class="scene">
+        <p id="s1-tag" class="hook-tag">VIEWER RETENTION ARCHITECTURE</p>
+        <h2 id="s1-t1" class="hook-title-1">Most video editors build for editors.</h2>
+        <h1 id="s1-t2" class="hook-title-2">Govind builds for viewer retention.</h1>
+        <div id="s1-rule" class="hook-rule"></div>
+      </div>
+
+      <!-- SCENE 2: AUTHORITY (4.5s - 9.5s) -->
+      <div id="scene-2" class="scene">
+        <div id="s2-author" class="author-card">
+          <div class="author-img-wrap">
+            <img class="author-img" src="assets/images/govind-maddeshiya.jpg" alt="Govind Maddeshiya" />
+          </div>
+          <div style="text-align: center;">
+            <div class="author-name">Govind Maddeshiya</div>
+            <div class="author-role">Director of Post-Production</div>
+          </div>
+        </div>
+
+        <div id="s2-metrics" class="metrics-col">
+          <h2 class="wordmark-large">Baniya Visuals Works</h2>
+          <p style="font-size: 22px; color: #57544C; line-height: 1.4;">
+            Eight years of meticulous keyframing, dynamic pacing, and sound design tailored for short-form virality.
+          </p>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="metric-num">8+</span>
+              <span class="metric-lbl">Years Craft</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-num">500+</span>
+              <span class="metric-lbl">Reels Delivered</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-num">100%</span>
+              <span class="metric-lbl">Retention Pacing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENE 3: SHOWCASE (9.5s - 15.5s) -->
+      <div id="scene-3" class="scene">
+        <div id="s3-head" class="showcase-heading">
+          <h2 class="showcase-title">Cinematic Short-Form Showcase</h2>
+          <p class="showcase-sub">Precision Cuts · Sound Synchronization · High Retention</p>
+        </div>
+        <div class="reels-row">
+          <div id="card-1" class="reel-card">
+            <img class="reel-img" src="assets/images/reel-1.jpg" alt="Cafe Commercial" />
+            <div class="reel-overlay"></div>
+            <div class="reel-content">
+              <span class="reel-badge">COMMERCIAL</span>
+              <div class="reel-name">Chandigarh Cafe & Restaurant</div>
+            </div>
+          </div>
+          <div id="card-2" class="reel-card">
+            <img class="reel-img" src="assets/images/reel-2.jpg" alt="School Event" />
+            <div class="reel-overlay"></div>
+            <div class="reel-content">
+              <span class="reel-badge">EVENT REEL</span>
+              <div class="reel-name">Teacher's Day Celebration</div>
+            </div>
+          </div>
+          <div id="card-3" class="reel-card">
+            <img class="reel-img" src="assets/images/reel-6.jpg" alt="Spiritual Cinema" />
+            <div class="reel-overlay"></div>
+            <div class="reel-content">
+              <span class="reel-badge">CINEMATIC</span>
+              <div class="reel-name">Spiritual Ambient Cinema</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENE 4: FINALE (15.5s - 20s) -->
+      <div id="scene-4" class="scene">
+        <p id="s4-super" class="finale-super">THE CLOSING MANTRA</p>
+        <h1 id="s4-heading" class="finale-statement">BANIYA MAKES REELS STICK.</h1>
+        <p id="s4-sub" class="finale-sub">
+          Turn your raw footage into stories people cannot scroll past. Available for high-impact creator batches.
+        </p>
+        <div id="s4-cta" class="cta-pill">
+          <span>Book Batch on WhatsApp ↗</span>
+          <span style="opacity: 0.7;">|</span>
+          <span style="font-weight: 400;">wa.me/916393101990</span>
+        </div>
+      </div>
+
+      <!-- Running Time Bar -->
+      <div id="time-bar" class="time-bar"></div>
+
+      <!-- Audio Elements with Data Attributes -->
+      <audio
+        id="voiceover"
+        data-start="0"
+        data-duration="20"
+        data-track-index="11"
+        data-volume="1.0"
+        src="assets/audio/voiceover.mp3"
+      ></audio>
+
+      <audio
+        id="bg-music"
+        data-start="0"
+        data-duration="20"
+        data-track-index="10"
+        data-volume="0.22"
+        src="assets/music/happy-beats-business-moves-vol-12-by-ende-dot-app.mp3"
+      ></audio>
+
+      <audio
+        id="sfx-click-1"
+        data-start="0.1"
+        data-duration="0.10"
+        data-track-index="12"
+        data-volume="0.5"
+        src="assets/sfx/interface/click_001.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-drop-2"
+        data-start="4.6"
+        data-duration="0.11"
+        data-track-index="13"
+        data-volume="0.6"
+        src="assets/sfx/interface/drop_001.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-click-3"
+        data-start="9.6"
+        data-duration="0.10"
+        data-track-index="14"
+        data-volume="0.5"
+        src="assets/sfx/interface/click_001.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-drop-4"
+        data-start="15.2"
+        data-duration="0.11"
+        data-track-index="15"
+        data-volume="0.6"
+        src="assets/sfx/interface/drop_001.ogg"
+      ></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Overall Progress Bar
+      tl.to("#time-bar", { width: "100%", duration: 20, ease: "none" }, 0);
+
+      /* ========================================================
+         SCENE 1: HOOK (0.0s - 4.5s)
+         ======================================================== */
+      tl.set("#scene-1", { autoAlpha: 1 }, 0);
+      tl.fromTo("#s1-tag", { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.2);
+      tl.fromTo("#s1-t1", { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.4);
+      tl.fromTo("#s1-t2", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.9, ease: "power3.out" }, 1.4);
+      tl.fromTo("#s1-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 1.8);
+
+      // Scene 1 Exit
+      tl.to("#scene-1", { opacity: 0, y: -30, duration: 0.45, ease: "power2.in" }, 4.1);
+      tl.set("#scene-1", { autoAlpha: 0 }, 4.55);
+
+      /* ========================================================
+         SCENE 2: IDENTITY & METRICS (4.5s - 9.5s)
+         ======================================================== */
+      tl.set("#scene-2", { autoAlpha: 1 }, 4.55);
+      tl.fromTo("#s2-author", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }, 4.6);
+      tl.fromTo("#s2-metrics", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }, 4.8);
+      tl.fromTo(".metric-box", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "back.out(1.2)" }, 5.4);
+
+      // Scene 2 Exit
+      tl.to("#scene-2", { opacity: 0, scale: 0.96, duration: 0.45, ease: "power2.in" }, 9.1);
+      tl.set("#scene-2", { autoAlpha: 0 }, 9.55);
+
+      /* ========================================================
+         SCENE 3: SHOWCASE CARDS (9.5s - 15.5s)
+         ======================================================== */
+      tl.set("#scene-3", { autoAlpha: 1 }, 9.55);
+      tl.fromTo("#s3-head", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 9.6);
+      tl.fromTo("#card-1", { opacity: 0, y: 60, rotation: -2 }, { opacity: 1, y: 0, rotation: 0, duration: 0.8, ease: "power3.out" }, 10.0);
+      tl.fromTo("#card-2", { opacity: 0, y: 80, scale: 0.92 }, { opacity: 1, y: 0, scale: 1.05, duration: 0.85, ease: "power3.out" }, 10.3);
+      tl.fromTo("#card-3", { opacity: 0, y: 60, rotation: 2 }, { opacity: 1, y: 0, rotation: 0, duration: 0.8, ease: "power3.out" }, 10.6);
+
+      // Scene 3 Exit
+      tl.to("#scene-3", { opacity: 0, y: -40, duration: 0.45, ease: "power2.in" }, 15.1);
+      tl.set("#scene-3", { autoAlpha: 0 }, 15.55);
+
+      /* ========================================================
+         SCENE 4: FINALE OUTRO (15.5s - 20.0s)
+         ======================================================== */
+      tl.set("#scene-4", { autoAlpha: 1 }, 15.55);
+      tl.fromTo("#s4-super", { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 15.6);
+      tl.fromTo("#s4-heading", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" }, 15.9);
+      tl.fromTo("#s4-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 16.4);
+      tl.fromTo("#s4-cta", { opacity: 0, y: 25, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "back.out(1.4)" }, 17.0);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -22,6 +22,7 @@ interface HeroStyle {
   title: string;
   badge: string;
   posterUrl: string;
+  videoUrl: string;
   reelUrl: string;
   caption: string;
   audio: string;
@@ -36,6 +37,7 @@ const heroStyles: HeroStyle[] = [
     title: "School Events",
     badge: "EVENT SHOWREEL",
     posterUrl: "/assets/reels/reel-2.jpg",
+    videoUrl: "/assets/videos/reel-2.mp4",
     reelUrl: "https://www.instagram.com/reel/Dc8InDqCYsK/?stkn=ejBpd2Q5N3BpbjJt",
     caption: "Teacher's Day Celebration At JPS school 📍 #teachersday #viral #explorepage✨ #dudahi",
     audio: "Shreya Ghoshal, Shaan • Deewangi",
@@ -48,6 +50,7 @@ const heroStyles: HeroStyle[] = [
     title: "Cafe Commercial",
     badge: "COMMERCIAL REEL",
     posterUrl: "/assets/reels/reel-1.jpg",
+    videoUrl: "/assets/videos/reel-1.mp4",
     reelUrl: "https://www.instagram.com/reel/DdsVlN7vvy9/?stkn=MXdsZzJpbGk4MnZ1Yg==",
     caption: "CHANDIGARH CAFE AND RESTAURANT ❤️🙌🏻 TAMKUHI ROAD 📍 #tamkuhiroad #viral",
     audio: "Trending Commercial Beat · @baniya_visuals",
@@ -60,6 +63,7 @@ const heroStyles: HeroStyle[] = [
     title: "Spiritual Cinema",
     badge: "CINEMATIC STORY",
     posterUrl: "/assets/reels/reel-6.jpg",
+    videoUrl: "/assets/videos/reel-6.mp4",
     reelUrl: "https://www.instagram.com/reel/DVXwke9kWoe/",
     caption: "I Found Him When No One Is There ❤️✨ #trendingreels #hanumanji #cinematic",
     audio: "Devotional Ambient Strings · @baniya_visuals",
@@ -72,6 +76,7 @@ const heroStyles: HeroStyle[] = [
     title: "Heritage Visuals",
     badge: "ARCHITECTURAL CUT",
     posterUrl: "/assets/reels/reel-4.jpg",
+    videoUrl: "/assets/videos/reel-4.mp4",
     reelUrl: "https://www.instagram.com/reel/DcoObeMMGcu/",
     caption: "Khaas Baradari Heritage Visuals — Lucknow 📍 #khaasbaradari #viral #lucknow",
     audio: "Atmospheric Heritage Score · @baniya_visuals",
@@ -295,13 +300,15 @@ export default function Hero() {
                   transition={{ duration: 0.4 }}
                   className="relative w-full h-full"
                 >
-                  <Image
-                    src={currentStyle.posterUrl}
-                    alt={currentStyle.caption}
-                    fill
-                    sizes="340px"
-                    className="object-cover"
-                    priority
+                  <video
+                    key={currentStyle.videoUrl}
+                    src={currentStyle.videoUrl}
+                    poster={currentStyle.posterUrl}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
                   />
 
                   {/* Top Instagram Reel Bar */}
