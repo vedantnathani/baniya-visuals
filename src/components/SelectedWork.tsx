@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projectsData, Project } from "@/data/projects";
 import VideoModal from "./VideoModal";
 import Image from "next/image";
-import { Play, ArrowUpRight, Music2, Heart } from "lucide-react";
+import { Play, ArrowUpRight, Music2, Heart, Film } from "lucide-react";
 
 type FilterCategory = "All" | "Reels" | "Shorts" | "Cinematic" | "YouTube";
 const categories: FilterCategory[] = ["All", "Reels", "Shorts", "Cinematic", "YouTube"];
@@ -14,7 +14,6 @@ export default function SelectedWork() {
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>("All");
   const [activeProject, setActiveProject] = useState<Project>(projectsData[0]);
   const [modalProject, setModalProject] = useState<Project | null>(null);
-  const [mobileExpandedId, setMobileExpandedId] = useState<string | null>(projectsData[0].id);
 
   const filteredProjects =
     selectedCategory === "All"
@@ -33,7 +32,7 @@ export default function SelectedWork() {
             Selected <span className="italic-serif-accent">works.</span>
           </h2>
           <p className="font-sans text-xs sm:text-sm text-fg-muted font-light mt-2 max-w-[50ch]">
-            Real Instagram reels &amp; cinematic projects edited by Govind Maddeshiya (@baniya_visuals). Tap any reel to preview or watch directly on Instagram.
+            Real Instagram reels &amp; cinematic projects edited by Govind Maddeshiya (@baniya_visuals). Click any reel to play the live preview.
           </p>
         </div>
 
@@ -61,19 +60,18 @@ export default function SelectedWork() {
         <div className="lg:col-span-7 flex flex-col divide-y divide-border-subtle">
           {filteredProjects.map((project) => {
             const isActive = activeProject.id === project.id;
-            const isMobileOpen = mobileExpandedId === project.id;
 
             return (
               <div
                 key={project.id}
                 onMouseEnter={() => setActiveProject(project)}
-                className={`py-6 sm:py-8 transition-colors group cursor-pointer ${
-                  isActive ? "bg-bg-card/40 px-4 rounded-2xl -mx-4" : ""
-                }`}
                 onClick={() => {
                   setActiveProject(project);
-                  setMobileExpandedId(isMobileOpen ? null : project.id);
+                  setModalProject(project);
                 }}
+                className={`py-6 sm:py-8 transition-all group cursor-pointer rounded-2xl ${
+                  isActive ? "bg-bg-card/60 px-4 -mx-4 shadow-sm" : "hover:bg-bg-card/30 hover:px-2 hover:-mx-2"
+                }`}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-start gap-4 sm:gap-6">
@@ -106,72 +104,48 @@ export default function SelectedWork() {
                         ))}
                       </div>
 
-                      {/* Technique notes & direct Instagram link */}
-                      <div className="flex items-center gap-4 mt-3 pt-2 border-t border-border-subtle/50 text-xs font-mono">
+                      {/* Technique notes & direct actions */}
+                      <div className="flex flex-wrap items-center gap-4 mt-3 pt-2 border-t border-border-subtle/50 text-xs font-mono">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setModalProject(project);
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-gold text-black font-semibold text-[11px] uppercase tracking-wider hover:bg-accent-gold-hover shadow transition-all active:scale-95"
+                        >
+                          <Play className="w-3 h-3 fill-black" />
+                          <span>Watch Reel</span>
+                        </button>
+
                         <a
                           href={project.instagramUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-accent-gold hover:underline flex items-center gap-1 uppercase tracking-wider text-[11px]"
+                          className="text-fg-muted hover:text-accent-gold flex items-center gap-1 uppercase tracking-wider text-[11px] transition-colors"
                         >
-                          <span>Watch on Instagram</span>
-                          <ArrowUpRight className="w-3 h-3" />
+                          <span>Instagram ↗</span>
                         </a>
-                        <span className="text-fg-dim">·</span>
-                        <span className="text-fg-muted text-[11px]">
+
+                        <span className="text-fg-dim hidden sm:inline">·</span>
+                        <span className="text-fg-muted text-[11px] hidden sm:inline">
                           {project.techniques}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Launch button on desktop */}
+                  {/* Play Action button on desktop */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       setModalProject(project);
                     }}
-                    className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full border border-border-subtle bg-bg-card group-hover:border-accent-gold group-hover:bg-accent-gold text-fg-primary group-hover:text-black transition-all shrink-0 mt-1"
-                    aria-label={`Open reel preview for ${project.title}`}
+                    className="flex items-center justify-center w-11 h-11 rounded-full border border-accent-gold/40 bg-accent-gold/10 text-accent-gold group-hover:bg-accent-gold group-hover:text-black transition-all shrink-0 mt-1 shadow-md hover:scale-105 active:scale-95"
+                    aria-label={`Watch reel preview for ${project.title}`}
                   >
                     <Play className="w-4 h-4 fill-current ml-0.5" />
                   </button>
-                </div>
-
-                {/* Mobile Inline Video Preview on tap */}
-                <div className="lg:hidden">
-                  <AnimatePresence>
-                    {isMobileOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.35 }}
-                        className="overflow-hidden pt-4"
-                      >
-                        <div
-                          className="relative aspect-[9/16] w-full max-w-[280px] mx-auto rounded-2xl overflow-hidden bg-black border border-border-subtle shadow-xl"
-                          onClick={() => setModalProject(project)}
-                        >
-                          <Image
-                            src={project.posterUrl}
-                            alt={project.title}
-                            fill
-                            className="object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                            <div className="w-12 h-12 rounded-full bg-accent-gold text-black flex items-center justify-center shadow-lg">
-                              <Play className="w-5 h-5 ml-0.5 fill-black" />
-                            </div>
-                          </div>
-                          <span className="absolute bottom-2 left-2 right-2 text-center text-[10px] font-mono text-white/90 bg-black/70 py-1 rounded">
-                            Tap to expand reel
-                          </span>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
               </div>
             );
@@ -186,7 +160,7 @@ export default function SelectedWork() {
                 {activeProject.number} · {activeProject.category}
               </span>
               <span className="text-[10px] uppercase tracking-wider text-fg-dim">
-                INSTAGRAM REEL · 9:16
+                CLICK TO PLAY REEL
               </span>
             </div>
 
@@ -219,16 +193,16 @@ export default function SelectedWork() {
                 </span>
               </div>
 
-              {/* Hover Play Pill */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="px-5 py-2.5 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase flex items-center gap-2 shadow-2xl group-hover:scale-110 transition-transform">
-                  <Play className="w-3.5 h-3.5 fill-black" />
-                  <span>Preview Reel</span>
+              {/* Center Play Button Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="px-6 py-3 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase flex items-center gap-2 shadow-2xl group-hover:scale-110 active:scale-95 transition-transform">
+                  <Play className="w-4 h-4 fill-black" />
+                  <span>Play Reel Preview</span>
                 </div>
               </div>
 
               {/* Bottom Details */}
-              <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-white pointer-events-none">
+              <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 text-white pointer-events-none">
                 <h4 className="font-serif text-base font-light mb-1 line-clamp-1">
                   {activeProject.title}
                 </h4>
