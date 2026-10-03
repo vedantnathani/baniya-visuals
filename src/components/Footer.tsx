@@ -48,15 +48,19 @@ export default function Footer() {
               href={siteConfig.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-accent-gold transition-colors flex items-center gap-1 uppercase"
+              className="px-3.5 py-1.5 rounded-full bg-accent-gold/15 text-accent-gold border border-accent-gold/40 hover:bg-accent-gold hover:text-black transition-all flex items-center gap-1.5 uppercase font-medium"
             >
               <span>WhatsApp</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
 
-            <span className="text-fg-dim">·</span>
-
-            <span className="text-fg-primary">{siteConfig.phone}</span>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="px-3.5 py-1.5 rounded-full border border-border-strong text-fg-muted hover:border-accent-gold hover:text-accent-gold transition-all flex items-center gap-1.5 uppercase font-medium"
+            >
+              <span>Email</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
           </div>
 
           {/* Back to top button */}

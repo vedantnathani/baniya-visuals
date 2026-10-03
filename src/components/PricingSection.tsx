@@ -9,10 +9,10 @@ export default function PricingSection() {
     <section id="pricing" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-border-subtle">
       {/* Heading & Subline */}
       <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-        <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-accent-gold">
-          INVESTMENT TIERS [07]
+        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-gold/10 border border-accent-gold/30 text-accent-gold text-xs uppercase tracking-wider font-medium mb-3">
+          TRANSPARENT EDITING RATES
         </span>
-        <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-fg-primary font-light mt-2 tracking-tight">
+        <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-fg-primary font-light tracking-tight">
           Simple <span className="italic-serif-accent">pricing.</span>
         </h2>
         <p className="font-sans text-sm sm:text-base text-fg-muted font-light mt-3 max-w-[55ch] mx-auto">

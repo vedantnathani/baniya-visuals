@@ -125,20 +125,25 @@ export default function Navbar() {
               </nav>
             </div>
 
-            <div className="flex flex-col gap-4 pt-6 border-t border-border-subtle">
-              <div className="flex items-center justify-between text-xs font-mono text-fg-muted">
-                <span>Direct WhatsApp</span>
-                <span className="text-fg-primary">{siteConfig.phone}</span>
-              </div>
+            <div className="flex flex-col gap-3 pt-6 border-t border-border-subtle">
               <a
                 href={siteConfig.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenu}
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-accent-gold text-black font-semibold text-sm tracking-wider uppercase"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-accent-gold text-black font-semibold text-sm tracking-wider uppercase shadow-md active:scale-95 transition-all"
               >
-                <span>Book Via WhatsApp</span>
+                <span>Chat on WhatsApp</span>
                 <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href={`mailto:${siteConfig.email}`}
+                onClick={closeMenu}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-full border border-border-strong text-fg-primary hover:border-accent-gold hover:text-accent-gold font-semibold text-xs tracking-wider uppercase transition-all"
+              >
+                <span>Send Email</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </motion.div>

@@ -1,6 +1,7 @@
 import IntroPreloader from "@/components/IntroPreloader";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeStrip from "@/components/MarqueeStrip";
@@ -16,6 +17,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <SmoothScroll>
+      <ScrollProgressBar />
       <IntroPreloader />
       <CustomCursor />
       <Navbar />

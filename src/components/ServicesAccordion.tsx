@@ -77,10 +77,10 @@ export default function ServicesAccordion() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
         <div>
-          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-accent-gold">
-            CORE EXPERTISE [06]
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-gold/10 border border-accent-gold/30 text-accent-gold text-xs uppercase tracking-wider font-medium">
+            WHAT I DO · RETENTION SERVICES
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-fg-primary font-light mt-2 tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-fg-primary font-light mt-3 tracking-tight">
             Specialized <span className="italic-serif-accent">capabilities.</span>
           </h2>
         </div>
