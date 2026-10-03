@@ -78,7 +78,7 @@ export default function IntroPreloader({ onComplete }: IntroPreloaderProps) {
           <div className="flex justify-between items-center text-xs font-mono text-[#9E9B93]">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping" />
-              <span className="uppercase tracking-widest text-[10px]">INITIALIZING ARCHIVE</span>
+              <span className="uppercase tracking-widest text-[10px]">LOADING SHOWREEL · @baniya_visuals</span>
             </div>
             <button
               onClick={skipIntro}
@@ -96,7 +96,7 @@ export default function IntroPreloader({ onComplete }: IntroPreloaderProps) {
               transition={{ duration: 0.6 }}
               className="font-mono text-xs uppercase tracking-[0.3em] text-[#D4AF37] mb-3"
             >
-              GOVIND MADDESHIYA
+              GOVIND MADDESHIYA · @BANIYA_VISUALS
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, scale: 0.95 }}

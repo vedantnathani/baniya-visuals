@@ -1,7 +1,16 @@
+export interface StoryHighlight {
+  id: string;
+  label: string;
+  image: string;
+  reelUrl: string;
+  category: string;
+}
+
 export interface SiteConfig {
   name: string;
   brandName: string;
   title: string;
+  handle: string;
   phone: string;
   whatsappLink: string;
   email: string;
@@ -41,18 +50,21 @@ export interface SiteConfig {
     location: string;
   };
   socialLinks: {
-    instagram: string; // PLACEHOLDER: replace with real IG handle
-    youtube: string;   // PLACEHOLDER: replace with real YouTube channel
+    instagram: string;
+    youtube: string;
     whatsapp: string;
     email: string;
   };
-  portraitPhoto: string; // PLACEHOLDER: replace with creator portrait
+  profilePhoto: string;
+  portraitPhoto: string;
+  storyHighlights: StoryHighlight[];
 }
 
 export const siteConfig: SiteConfig = {
   name: "Govind Maddeshiya",
   brandName: "Baniya Visuals Works",
   title: "Professional Video Editor & Cinematic Content Creator",
+  handle: "@baniya_visuals",
   phone: "+91 63931 01990",
   whatsappLink: "https://wa.me/916393101990",
   email: "govindmaddeshiya9@gmail.com",
@@ -71,13 +83,13 @@ export const siteConfig: SiteConfig = {
   tools: [
     {
       name: "CapCut (Advanced)",
-      level: "Mastery Level",
-      description: "Fast-paced transitions, VFX, automated and stylized typography captions, beat-synchronization, sound design, and retention-focused vertical social-media formats.",
+      level: "Advanced Mastery",
+      description: "Fast-paced viral transitions, VFX, dynamic auto and styled captions, beat-synchronization, sound design, and vertical social-media retention formats.",
     },
     {
       name: "Alight Motion (Advanced)",
-      level: "Mastery Level",
-      description: "Custom motion graphics, intricate keyframing, complex velocity curves/speed ramps, camera pan mechanics, and fluid text animations.",
+      level: "Advanced Mastery",
+      description: "Custom motion graphics, keyframing, velocity curves/speed ramps, camera pan mechanics, and fluid text animations.",
     },
   ],
   strengths: [
@@ -85,7 +97,7 @@ export const siteConfig: SiteConfig = {
     "Trend-aware visual aesthetics adapted to evolving social algorithms",
     "Sharp focus on dynamic pacing, sound design, and musical synchronization",
     "Flexible visual style individually customized to each creator and story",
-    "High-reliability delivery workflow with clear, responsive communication",
+    "Quality workflow with clear, friendly, and responsive communication",
   ],
   pricing: [
     {
@@ -135,18 +147,61 @@ export const siteConfig: SiteConfig = {
     },
   ],
   nowWidget: {
-    status: "CURRENTLY IN PRODUCTION",
-    project: "Cinematic Travel Montage & Short-Form Narrative",
+    status: "CURRENTLY EDITING",
+    project: "School Event & Cafe Commercial Campaign",
     date: "October 2026",
     location: "India",
   },
   socialLinks: {
-    // PLACEHOLDER: Replace handles with actual creator social links
-    instagram: "https://instagram.com/baniyavisuals",
+    instagram: "https://www.instagram.com/baniya_visuals/",
     youtube: "https://youtube.com/@baniyavisuals",
     whatsapp: "https://wa.me/916393101990",
     email: "mailto:govindmaddeshiya9@gmail.com",
   },
-  // PLACEHOLDER: Creator portrait photograph
-  portraitPhoto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
+  profilePhoto: "/assets/images/govind_insta_profile.jpg",
+  portraitPhoto: "/assets/images/govind-maddeshiya.jpg",
+  storyHighlights: [
+    {
+      id: "events",
+      label: "Events",
+      image: "/assets/reels/reel-2.jpg",
+      reelUrl: "https://www.instagram.com/reel/Dc8InDqCYsK/?stkn=ejBpd2Q5N3BpbjJt",
+      category: "Reels",
+    },
+    {
+      id: "cafes",
+      label: "Cafes",
+      image: "/assets/reels/reel-1.jpg",
+      reelUrl: "https://www.instagram.com/reel/DdsVlN7vvy9/?stkn=MXdsZzJpbGk4MnZ1Yg==",
+      category: "Reels",
+    },
+    {
+      id: "cinematic",
+      label: "Cinematic",
+      image: "/assets/reels/reel-6.jpg",
+      reelUrl: "https://www.instagram.com/reel/DVXwke9kWoe/",
+      category: "Cinematic",
+    },
+    {
+      id: "heritage",
+      label: "Heritage",
+      image: "/assets/reels/reel-4.jpg",
+      reelUrl: "https://www.instagram.com/reel/DcoObeMMGcu/",
+      category: "Shorts",
+    },
+    {
+      id: "trending",
+      label: "Trending",
+      image: "/assets/reels/reel-5.jpg",
+      reelUrl: "https://www.instagram.com/reel/DWJ5zR5AdUG/",
+      category: "Cinematic",
+    },
+    {
+      id: "aesthetic",
+      label: "Aesthetic",
+      image: "/assets/reels/reel-3.jpg",
+      reelUrl: "https://www.instagram.com/reel/Dc6JzwmqKvD/",
+      category: "Shorts",
+    },
+  ],
 };

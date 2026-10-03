@@ -5,89 +5,104 @@ export interface Project {
   category: "Reels" | "Shorts" | "Cinematic" | "YouTube";
   description: string;
   techniques: string;
-  videoUrl: string; // PLACEHOLDER: Paste your direct video URL (.mp4 or .webm)
-  posterUrl: string; // PLACEHOLDER: Paste thumbnail/poster image URL
+  instagramUrl: string;
+  posterUrl: string;
   year: string;
   aspectRatio: string;
+  tags: string[];
+  likes: string;
+  audioTrack: string;
 }
 
 export const projectsData: Project[] = [
   {
     id: "project-1",
     number: "01",
-    title: "Midnight Tokyo Cyber Montage",
-    category: "Cinematic",
-    description: "Atmospheric nightlife narrative driven by color grade contrast and cinematic pacing.",
-    techniques: "Color grading, speed ramps, sound design, ambient foley",
-    // PLACEHOLDER: Replace with actual video URL
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-portrait-of-a-man-in-front-of-neon-lights-42994-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+    title: "Teacher's Day Celebration At JPS School 📍",
+    category: "Reels",
+    description: "High-energy event recap featuring dynamic student crowd moments, speech highlights, and rhythm sync at JPS School Dudahi.",
+    techniques: "Beat-sync cuts, energetic speed ramps, crowd audio enhancement",
+    instagramUrl: "https://www.instagram.com/reel/Dc8InDqCYsK/?stkn=ejBpd2Q5N3BpbjJt",
+    posterUrl: "/assets/reels/reel-2.jpg",
     year: "2026",
     aspectRatio: "9:16",
+    tags: ["#teachersday", "#explorepage✨", "#viral", "#dudahi", "#tamkuhiroad"],
+    likes: "4.6K",
+    audioTrack: "Shreya Ghoshal, Shaan • Deewangi (Rainbow Mix)",
   },
   {
     id: "project-2",
     number: "02",
-    title: "Urban Streetwear Velocity Reel",
+    title: "Chandigarh Cafe & Restaurant 📍",
     category: "Reels",
-    description: "High-octane apparel showcase with instant hook rate and synchronized bass drops.",
-    techniques: "Beat-sync, velocity keyframes, kinetic typography captions",
-    // PLACEHOLDER: Replace with actual video URL
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-shot-of-a-skater-doing-tricks-in-a-skatepark-42656-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80",
+    description: "Commercial reel showcasing the vibrant ambiance, warm lighting, and culinary hospitality at Tamkuhi Road.",
+    techniques: "Smooth camera motion, appetizing color contrast, commercial pacing",
+    instagramUrl: "https://www.instagram.com/reel/DdsVlN7vvy9/?stkn=MXdsZzJpbGk4MnZ1Yg==",
+    posterUrl: "/assets/reels/reel-1.jpg",
     year: "2026",
     aspectRatio: "9:16",
+    tags: ["@chandigarh_cafe_restaurant01", "#tamkuhiroad", "#viral", "#explorepage✨", "#dudahi"],
+    likes: "3.8K",
+    audioTrack: "Trending Commercial Beat · @baniya_visuals",
   },
   {
     id: "project-3",
     number: "03",
-    title: "Apex Electronic Club Visualizer",
-    category: "Shorts",
-    description: "Hypnotic live performance teaser engineered for 100%+ replay retention.",
-    techniques: "Rhythm matching, flash cuts, custom optical glow, bass rumble",
-    // PLACEHOLDER: Replace with actual video URL
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-view-of-a-dj-performing-at-a-party-41716-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
+    title: "Cafe 1991 Lucknow 📍",
+    category: "Cinematic",
+    description: "Aesthetic food & beverage presentation with fast hook cuts and trending music synchronization.",
+    techniques: "Macro food close-ups, warm grade, trending hook transitions",
+    instagramUrl: "https://www.instagram.com/reel/DWJ5zR5AdUG/",
+    posterUrl: "/assets/reels/reel-5.jpg",
     year: "2026",
     aspectRatio: "9:16",
+    tags: ["@cafe1991official", "#lucknow", "#trending", "#cafeaesthetic"],
+    likes: "2.8K",
+    audioTrack: "Chill Lo-Fi Beat · @baniya_visuals",
   },
   {
     id: "project-4",
     number: "04",
-    title: "Creator Masterclass YouTube Edit",
+    title: '"I Found Him When No One Is There"',
     category: "YouTube",
-    description: "Talking-head longform cut with high-retention zoom pulses and illustrative B-roll.",
-    techniques: "Engagement zoom cuts, sound accents, subtle motion graphics",
-    // PLACEHOLDER: Replace with actual video URL
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-shot-of-a-photographer-taking-pictures-in-nature-42666-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80",
-    year: "2025",
+    description: "Spiritual cinematic storytelling with emotional visual build-up, divine transitions, and devotional resonance.",
+    techniques: "Slow-motion devotional build, golden flare lighting, emotional audio mix",
+    instagramUrl: "https://www.instagram.com/reel/DVXwke9kWoe/",
+    posterUrl: "/assets/reels/reel-6.jpg",
+    year: "2026",
     aspectRatio: "9:16",
+    tags: ["#hanumanji", "#trendingreels", "#cinematic", "#bhakti"],
+    likes: "5.2K",
+    audioTrack: "Devotional Ambient Strings · @baniya_visuals",
   },
   {
     id: "project-5",
     number: "05",
-    title: "Nocturne City Lights Walkthrough",
+    title: "Khaas Baradari Heritage Visuals — Lucknow 📍",
     category: "Cinematic",
-    description: "Mood-driven cinematic sequence showcasing narrative flow and soundstage precision.",
-    techniques: "Seamless match cuts, anamorphic flare polish, dynamic LUTs",
-    // PLACEHOLDER: Replace with actual video URL
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-shot-of-a-woman-walking-through-a-city-at-night-42984-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=800&q=80",
+    description: "Heritage architecture, moody atmospheric lighting, and architectural symmetry cut to beat.",
+    techniques: "Symmetrical framing, historic architectural reveal, bass drop sync",
+    instagramUrl: "https://www.instagram.com/reel/DcoObeMMGcu/",
+    posterUrl: "/assets/reels/reel-4.jpg",
     year: "2025",
     aspectRatio: "9:16",
+    tags: ["#khaasbaradari", "#lucknow", "#viral", "#cinematic"],
+    likes: "2.1K",
+    audioTrack: "Atmospheric Heritage Score · @baniya_visuals",
   },
   {
     id: "project-6",
     number: "06",
-    title: "Choreography & Motion Rhythm",
-    category: "Reels",
-    description: "Vibrant dance movement edit with micro-transitions and synchronized tempo shifts.",
-    techniques: "Speed ramps, motion tracking blur, punch-in transitions",
-    // PLACEHOLDER: Replace with actual video URL
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-shot-of-a-woman-dancing-in-a-neon-room-42998-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80",
+    title: "Aesthetic Tamkuhi Road Showcase 📍",
+    category: "Shorts",
+    description: "Cinematic interior flow, warm amber tones, and subtle speed ramping for social-first promotion.",
+    techniques: "Velocity curve pacing, ambient restaurant sounds, warm grading",
+    instagramUrl: "https://www.instagram.com/reel/Dc6JzwmqKvD/",
+    posterUrl: "/assets/reels/reel-3.jpg",
     year: "2025",
     aspectRatio: "9:16",
+    tags: ["#kushinagar", "#cafe", "#explorepage✨", "#aesthetic"],
+    likes: "3.4K",
+    audioTrack: "Aesthetic Lo-Fi Vibes · @baniya_visuals",
   },
 ];

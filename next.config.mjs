@@ -15,6 +15,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'assets.mixkit.co',
       },
+      {
+        protocol: 'https',
+        hostname: '**.cdninstagram.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.fbcdn.net',
+      },
     ],
   },
 };

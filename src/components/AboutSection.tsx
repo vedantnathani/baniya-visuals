@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { siteConfig } from "@/data/config";
 import Image from "next/image";
-import { Sparkles, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Sparkles, CheckCircle2, ArrowUpRight, MapPin, Instagram } from "lucide-react";
 
 export default function AboutSection() {
   return (
@@ -15,7 +15,7 @@ export default function AboutSection() {
             {/* Top Bar with Live Badge */}
             <div className="flex items-center justify-between px-3 py-2 border-b border-border-subtle mb-3 font-mono text-xs">
               <span className="text-accent-gold uppercase tracking-wider text-[10px]">
-                CREATIVE ARCHIVE
+                CREATOR PROFILE
               </span>
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono uppercase tracking-wider">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
@@ -30,18 +30,34 @@ export default function AboutSection() {
                 alt={`${siteConfig.name} - ${siteConfig.title}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 450px"
-                className="object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+                className="object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
 
               {/* Inset Creator Label */}
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 text-white">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-accent-gold">
-                  {siteConfig.name}
-                </p>
-                <p className="font-serif text-lg font-light">
-                  {siteConfig.brandName}
-                </p>
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-white flex items-end justify-between">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-accent-gold font-semibold">
+                    {siteConfig.name}
+                  </p>
+                  <p className="font-serif text-lg font-light">
+                    {siteConfig.brandName}
+                  </p>
+                  <div className="flex items-center gap-1 font-mono text-[10px] text-white/70 mt-1">
+                    <MapPin className="w-3 h-3 text-accent-gold" />
+                    <span>Dudahi / Tamkuhi Road · India</span>
+                  </div>
+                </div>
+
+                <a
+                  href={siteConfig.socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full bg-accent-gold text-black hover:scale-110 transition-transform"
+                  aria-label="Instagram Profile"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>
@@ -51,7 +67,7 @@ export default function AboutSection() {
         <div className="lg:col-span-7 flex flex-col gap-8">
           <div>
             <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-accent-gold">
-              ABOUT THE EDITOR [08]
+              BEHIND THE EDITS [08]
             </span>
 
             {/* Headline Statement */}
@@ -67,11 +83,16 @@ export default function AboutSection() {
 
           {/* Tools Block: Strictly CapCut & Alight Motion */}
           <div className="p-6 rounded-2xl bg-bg-card border border-border-subtle">
-            <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-accent-gold" />
-              <h3 className="font-mono text-xs uppercase tracking-widest text-accent-gold">
-                Dedicated Software Mastery
-              </h3>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-accent-gold" />
+                <h3 className="font-mono text-xs uppercase tracking-widest text-accent-gold">
+                  Core Software Mastery
+                </h3>
+              </div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-fg-dim">
+                Mobile &amp; Motion Rigs
+              </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

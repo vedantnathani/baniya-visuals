@@ -1,92 +1,95 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/data/config";
-import { ArrowDown, ArrowUpRight, RefreshCw } from "lucide-react";
+import Image from "next/image";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Heart,
+  MessageCircle,
+  Share2,
+  Music2,
+  CheckCircle,
+  RefreshCw,
+  Play,
+} from "lucide-react";
 
-interface EditStyle {
+interface HeroStyle {
   id: string;
   counter: string;
   title: string;
   badge: string;
-  videoUrl: string;
   posterUrl: string;
-  tagline: string;
+  reelUrl: string;
+  caption: string;
+  audio: string;
+  likes: string;
+  comments: string;
 }
 
-const editStyles: EditStyle[] = [
-  {
-    id: "cinematic",
-    counter: "01 / 04",
-    title: "Cinematic",
-    badge: "CINEMATIC PACING & COLOR",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-portrait-of-a-man-in-front-of-neon-lights-42994-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
-    tagline: "Atmospheric framing with high-contrast color grading",
-  },
+const heroStyles: HeroStyle[] = [
   {
     id: "reels",
+    counter: "01 / 04",
+    title: "School Events",
+    badge: "EVENT SHOWREEL",
+    posterUrl: "/assets/reels/reel-2.jpg",
+    reelUrl: "https://www.instagram.com/reel/Dc8InDqCYsK/?stkn=ejBpd2Q5N3BpbjJt",
+    caption: "Teacher's Day Celebration At JPS school 📍 #teachersday #viral #explorepage✨ #dudahi",
+    audio: "Shreya Ghoshal, Shaan • Deewangi",
+    likes: "4.6K",
+    comments: "142",
+  },
+  {
+    id: "commercial",
     counter: "02 / 04",
-    title: "Reels / Trending",
-    badge: "VIRAL VELOCITY & HOOKS",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-shot-of-a-skater-doing-tricks-in-a-skatepark-42656-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80",
-    tagline: "Instant 3-second hook retention and bass-matched cuts",
+    title: "Cafe Commercial",
+    badge: "COMMERCIAL REEL",
+    posterUrl: "/assets/reels/reel-1.jpg",
+    reelUrl: "https://www.instagram.com/reel/DdsVlN7vvy9/?stkn=MXdsZzJpbGk4MnZ1Yg==",
+    caption: "CHANDIGARH CAFE AND RESTAURANT ❤️🙌🏻 TAMKUHI ROAD 📍 #tamkuhiroad #viral",
+    audio: "Trending Commercial Beat · @baniya_visuals",
+    likes: "3.8K",
+    comments: "98",
   },
   {
-    id: "youtube",
+    id: "cinematic",
     counter: "03 / 04",
-    title: "YouTube",
-    badge: "TALKING HEAD & B-ROLL",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-shot-of-a-photographer-taking-pictures-in-nature-42666-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80",
-    tagline: "Clean visual rhythm, zoom pulses, and engaging B-roll",
+    title: "Spiritual Cinema",
+    badge: "CINEMATIC STORY",
+    posterUrl: "/assets/reels/reel-6.jpg",
+    reelUrl: "https://www.instagram.com/reel/DVXwke9kWoe/",
+    caption: "I Found Him When No One Is There ❤️✨ #trendingreels #hanumanji #cinematic",
+    audio: "Devotional Ambient Strings · @baniya_visuals",
+    likes: "5.2K",
+    comments: "284",
   },
   {
-    id: "shorts",
+    id: "heritage",
     counter: "04 / 04",
-    title: "Shorts",
-    badge: "RAPID-FIRE PACING",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-vertical-view-of-a-dj-performing-at-a-party-41716-large.mp4",
-    posterUrl: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
-    tagline: "Hypnotic rhythm engineered for 100%+ replay loops",
+    title: "Heritage Visuals",
+    badge: "ARCHITECTURAL CUT",
+    posterUrl: "/assets/reels/reel-4.jpg",
+    reelUrl: "https://www.instagram.com/reel/DcoObeMMGcu/",
+    caption: "Khaas Baradari Heritage Visuals — Lucknow 📍 #khaasbaradari #viral #lucknow",
+    audio: "Atmospheric Heritage Score · @baniya_visuals",
+    likes: "2.1K",
+    comments: "76",
   },
 ];
 
 export default function Hero() {
   const [styleIndex, setStyleIndex] = useState(0);
-  const currentStyle = editStyles[styleIndex];
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [isLiked, setIsLiked] = useState(false);
+  const currentStyle = heroStyles[styleIndex];
 
   const nextStyle = () => {
-    setStyleIndex((prev) => (prev + 1) % editStyles.length);
+    setStyleIndex((prev) => (prev + 1) % heroStyles.length);
+    setIsLiked(false);
   };
 
-  // IntersectionObserver to auto play/pause only in viewport
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            video.play().catch(() => {});
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, [styleIndex]);
-
-  // Words for word-by-word reveal
   const headlineWords = [
     { text: "BANIYA", isAccent: false },
     { text: "MAKES", isAccent: false },
@@ -95,28 +98,92 @@ export default function Hero() {
   ];
 
   return (
-    <section
-      ref={containerRef}
-      className="relative min-h-[100dvh] pt-24 pb-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-between max-w-7xl mx-auto overflow-hidden"
-    >
-      {/* Background radial highlight */}
+    <section className="relative min-h-[100dvh] pt-24 pb-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-between max-w-7xl mx-auto overflow-hidden">
+      {/* Glow highlight */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full pointer-events-none opacity-20 blur-[120px]"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full pointer-events-none opacity-20 blur-[130px]"
         style={{ background: "radial-gradient(circle, var(--accent-gold) 0%, transparent 70%)" }}
         aria-hidden="true"
       />
 
-      {/* Main Grid: Headline & CTAs on Left, Interactive Video Showcase on Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto">
-        {/* Left Column: Typography & CTAs */}
-        <div className="lg:col-span-7 flex flex-col gap-6 z-10">
-          {/* Eyebrow Label */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border-subtle bg-bg-card/60 backdrop-blur-sm w-fit font-mono text-[10px] sm:text-xs uppercase tracking-widest text-fg-muted">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-gold animate-ping" />
-            <span>{siteConfig.title}</span>
+      {/* 1. Instagram Story Highlights Ticker (Creator Essential) */}
+      <div className="w-full pb-8 mb-4 overflow-x-auto no-scrollbar">
+        <div className="flex items-center gap-4 sm:gap-6 min-w-max">
+          <div className="flex flex-col items-center">
+            <a
+              href="https://www.instagram.com/baniya_visuals/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative p-[2.5px] rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600 hover:scale-105 transition-transform"
+            >
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-bg-primary bg-bg-card">
+                <Image
+                  src={siteConfig.profilePhoto}
+                  alt={siteConfig.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <span className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-emerald-500 border-2 border-bg-primary" />
+            </a>
+            <span className="font-mono text-[10px] text-fg-muted mt-1.5 font-medium">
+              Govind
+            </span>
           </div>
 
-          {/* Headline with word-by-word reveal and italic serif accent */}
+          <div className="w-[1px] h-10 bg-border-subtle shrink-0" />
+
+          {siteConfig.storyHighlights.map((story) => (
+            <a
+              key={story.id}
+              href="#work"
+              className="flex flex-col items-center group cursor-pointer"
+            >
+              <div className="p-[2px] rounded-full bg-gradient-to-tr from-amber-400/80 via-rose-500/80 to-purple-600/80 group-hover:from-amber-400 group-hover:via-rose-500 group-hover:to-purple-600 group-hover:scale-105 transition-all">
+                <div className="relative w-13 h-13 sm:w-15 sm:h-15 w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] rounded-full overflow-hidden border-2 border-bg-primary bg-bg-card">
+                  <Image
+                    src={story.image}
+                    alt={story.label}
+                    fill
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+              </div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-fg-muted group-hover:text-accent-gold mt-1.5 transition-colors">
+                {story.label}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Main Grid: Creator Info & Headline on Left, Instagram Smartphone Mockup on Right */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto">
+        {/* Left Column */}
+        <div className="lg:col-span-7 flex flex-col gap-6 z-10">
+          {/* Creator Profile Chip */}
+          <div className="inline-flex items-center gap-3 p-1.5 pr-4 rounded-full border border-border-subtle bg-bg-card/70 backdrop-blur-md w-fit">
+            <div className="relative w-7 h-7 rounded-full overflow-hidden border border-accent-gold/40">
+              <Image
+                src={siteConfig.profilePhoto}
+                alt={siteConfig.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="font-mono text-xs text-accent-gold font-semibold">
+                {siteConfig.handle}
+              </span>
+              <CheckCircle className="w-3.5 h-3.5 fill-accent-gold text-black" />
+            </div>
+            <span className="text-fg-dim text-xs">·</span>
+            <span className="font-mono text-[11px] text-fg-muted uppercase tracking-wider">
+              {siteConfig.title}
+            </span>
+          </div>
+
+          {/* Headline */}
           <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-fg-primary leading-[1.08]">
             {headlineWords.map((word, i) => (
               <motion.span
@@ -140,7 +207,7 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <a
               href="#work"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase hover:bg-accent-gold-hover hover:scale-105 active:scale-95 transition-all shadow-lg group"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase hover:bg-accent-gold-hover hover:scale-105 active:scale-95 transition-all shadow-lg group"
             >
               <span>View the work</span>
               <span className="w-6 h-6 rounded-full bg-black/10 flex items-center justify-center transition-transform group-hover:translate-y-0.5">
@@ -152,10 +219,19 @@ export default function Hero() {
               href={siteConfig.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border-strong hover:border-accent-gold text-fg-primary font-mono text-xs tracking-wider uppercase hover:text-accent-gold transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border-strong hover:border-accent-gold text-fg-primary font-mono text-xs tracking-wider uppercase hover:text-accent-gold transition-all"
             >
               <span>WhatsApp me</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+
+            <a
+              href={siteConfig.socialLinks.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-3.5 rounded-full bg-bg-card border border-border-subtle hover:border-accent-gold text-fg-muted hover:text-accent-gold font-mono text-xs uppercase tracking-wider transition-all"
+            >
+              <span>@baniya_visuals ↗</span>
             </a>
           </div>
 
@@ -178,14 +254,22 @@ export default function Hero() {
                 Delivered
               </span>
             </div>
+            <div className="w-[1px] h-8 bg-border-subtle" />
+            <div className="flex flex-col">
+              <span className="font-serif text-2xl font-normal text-fg-primary">
+                100%
+              </span>
+              <span className="uppercase text-[10px] tracking-wider text-fg-muted">
+                Retention Pacing
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Right Column: Character-led Interactive Video Switcher */}
+        {/* Right Column: Smartphone Instagram Reel Mockup */}
         <div className="lg:col-span-5 flex flex-col items-center lg:items-end">
-          {/* Double-Bezel Hardware Enclosure */}
-          <div className="relative w-full max-w-[320px] sm:max-w-[340px] p-2 rounded-[2rem] bg-bg-card/70 border border-border-subtle shadow-2xl backdrop-blur-xl">
-            {/* Top Device Bar with Style Switcher */}
+          <div className="relative w-full max-w-[320px] sm:max-w-[340px] p-2 rounded-[2.4rem] bg-bg-card border-2 border-border-subtle shadow-2xl backdrop-blur-xl">
+            {/* Top Phone Header */}
             <div className="flex items-center justify-between px-3 py-2 border-b border-border-subtle mb-2 font-mono text-xs">
               <span className="text-accent-gold font-medium tracking-wider">
                 {currentStyle.counter}
@@ -193,52 +277,133 @@ export default function Hero() {
               <button
                 onClick={nextStyle}
                 className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border-subtle bg-bg-card-subtle hover:border-accent-gold hover:text-accent-gold text-[10px] uppercase tracking-wider transition-colors active:scale-95"
-                title="Cycle editing style"
+                title="Cycle reel style"
               >
                 <RefreshCw className="w-3 h-3 text-accent-gold animate-spin-slow" />
                 <span>Change style</span>
               </button>
             </div>
 
-            {/* Inner Video Core with 9:16 vertical ratio */}
-            <div
-              className="relative aspect-[9/16] w-full rounded-[calc(2rem-0.5rem)] overflow-hidden bg-black/90 group"
-              data-cursor="play"
-            >
+            {/* Inner Instagram Reel Viewport (9:16) */}
+            <div className="relative aspect-[9/16] w-full rounded-[calc(2.4rem-0.6rem)] overflow-hidden bg-black shadow-inner">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentStyle.id}
-                  initial={{ opacity: 0, scale: 0.96 }}
+                  initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.04 }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full h-full relative"
+                  exit={{ opacity: 0, scale: 1.03 }}
+                  transition={{ duration: 0.4 }}
+                  className="relative w-full h-full"
                 >
-                  <video
-                    ref={videoRef}
-                    src={currentStyle.videoUrl}
-                    poster={currentStyle.posterUrl}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
+                  <Image
+                    src={currentStyle.posterUrl}
+                    alt={currentStyle.caption}
+                    fill
+                    sizes="340px"
+                    className="object-cover"
+                    priority
                   />
 
-                  {/* Gradient Vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
-
-                  {/* Bottom Video Badge & Tagline */}
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex flex-col gap-1 pointer-events-none">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-accent-gold font-medium">
-                        {currentStyle.badge}
+                  {/* Top Instagram Reel Bar */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10 text-white drop-shadow">
+                    <div className="flex items-center gap-2">
+                      <div className="relative w-7 h-7 rounded-full overflow-hidden border border-white">
+                        <Image
+                          src={siteConfig.profilePhoto}
+                          alt={siteConfig.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <span className="font-sans font-semibold text-xs text-white">
+                        baniya_visuals
                       </span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <a
+                        href={siteConfig.socialLinks.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2 py-0.5 rounded-full border border-white/60 bg-black/30 backdrop-blur-sm text-[9px] font-mono uppercase text-white hover:bg-white hover:text-black transition-colors"
+                      >
+                        Follow
+                      </a>
                     </div>
-                    <p className="font-sans text-xs text-white/90 font-light line-clamp-1">
-                      {currentStyle.tagline}
+                    <span className="px-2 py-0.5 rounded bg-black/40 backdrop-blur-sm font-mono text-[9px] uppercase tracking-wider text-accent-gold">
+                      {currentStyle.badge}
+                    </span>
+                  </div>
+
+                  {/* Gradient Overlay for Instagram UI readability */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/90 pointer-events-none" />
+
+                  {/* Right Social Actions Rail */}
+                  <div className="absolute right-3 bottom-20 flex flex-col items-center gap-4 z-10">
+                    {/* Like button */}
+                    <button
+                      onClick={() => setIsLiked(!isLiked)}
+                      className="flex flex-col items-center gap-1 group active:scale-125 transition-transform"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center">
+                        <Heart
+                          className={`w-5 h-5 ${
+                            isLiked
+                              ? "fill-rose-500 text-rose-500 scale-110"
+                              : "text-white group-hover:text-rose-400"
+                          } transition-all`}
+                        />
+                      </div>
+                      <span className="font-mono text-[10px] text-white/90">
+                        {isLiked ? "Liked" : currentStyle.likes}
+                      </span>
+                    </button>
+
+                    {/* Comments */}
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white">
+                        <MessageCircle className="w-5 h-5" />
+                      </div>
+                      <span className="font-mono text-[10px] text-white/90">
+                        {currentStyle.comments}
+                      </span>
+                    </div>
+
+                    {/* Share */}
+                    <a
+                      href={currentStyle.reelUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:text-accent-gold transition-colors"
+                    >
+                      <Share2 className="w-5 h-5" />
+                    </a>
+
+                    {/* Audio spinning disc */}
+                    <div className="w-9 h-9 rounded-full bg-black/60 border border-white/20 p-1 flex items-center justify-center animate-spin-slow">
+                      <div className="w-full h-full rounded-full bg-accent-gold flex items-center justify-center">
+                        <Music2 className="w-3.5 h-3.5 text-black" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Caption & Instagram Link */}
+                  <div className="absolute bottom-3 left-3 right-16 z-10 flex flex-col gap-1.5 text-white">
+                    <p className="font-sans text-xs font-light leading-snug line-clamp-2 drop-shadow">
+                      {currentStyle.caption}
                     </p>
+
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-accent-gold drop-shadow">
+                      <Music2 className="w-3 h-3 shrink-0" />
+                      <span className="truncate">{currentStyle.audio}</span>
+                    </div>
+
+                    <a
+                      href={currentStyle.reelUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-white hover:text-accent-gold transition-colors"
+                    >
+                      <span>Watch Reel on Instagram</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
                   </div>
                 </motion.div>
               </AnimatePresence>
