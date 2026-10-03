@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" data-resolution="landscape">
+<html lang="en" data-resolution="vertical">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
-    <title>Baniya Visuals Works — Launch Film</title>
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Baniya Visuals Works — Viral Reel Launch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
       * {
@@ -15,18 +15,18 @@
         box-sizing: border-box;
       }
       html, body {
-        width: 1920px;
-        height: 1080px;
+        width: 1080px;
+        height: 1920px;
         overflow: hidden;
-        background: #F7F5F0;
-        color: #121212;
+        background: #0A0A0A;
+        color: #FFFFFF;
         font-family: 'Plus Jakarta Sans', sans-serif;
       }
       #root {
         position: relative;
-        width: 1920px;
-        height: 1080px;
-        background: #F7F5F0;
+        width: 1080px;
+        height: 1920px;
+        background: #0A0A0A;
         overflow: hidden;
       }
 
@@ -37,541 +37,926 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
-        opacity: 0.035;
+        opacity: 0.04;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         z-index: 99;
       }
 
-      /* Top Header */
-      .editorial-header {
+      /* Glowing background orbs */
+      .glow-orb-1 {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 800px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, transparent 70%);
+        filter: blur(120px);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .glow-orb-2 {
+        position: absolute;
+        bottom: 15%;
+        right: 10%;
+        width: 650px;
+        height: 650px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, transparent 70%);
+        filter: blur(100px);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Top Editorial Story Bar */
+      .top-story-bar {
         position: absolute;
         top: 60px;
-        left: 80px;
-        right: 80px;
+        left: 60px;
+        right: 60px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-family: 'JetBrains Mono', monospace;
-        font-size: 14px;
-        letter-spacing: 0.25em;
+        font-size: 20px;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
-        color: #57544C;
-        border-bottom: 1px solid rgba(18, 18, 18, 0.12);
+        color: #A3A3A3;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         padding-bottom: 24px;
         z-index: 50;
       }
       .brand-dot {
-        width: 8px;
-        height: 8px;
-        background: #8F6809;
+        width: 12px;
+        height: 12px;
+        background: #FBBF24;
         border-radius: 50%;
         display: inline-block;
-        margin-right: 12px;
+        margin-right: 14px;
+        box-shadow: 0 0 16px rgba(251, 191, 36, 0.8);
+      }
+
+      /* Bottom Progress Bar */
+      .progress-line-container {
+        position: absolute;
+        bottom: 40px;
+        left: 60px;
+        right: 60px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 2px;
+        overflow: hidden;
+        z-index: 50;
+      }
+      .progress-line {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #FBBF24, #34D399);
       }
 
       /* SCENE CONTAINERS */
       .scene {
         position: absolute;
         inset: 0;
-        width: 1920px;
-        height: 1080px;
-        padding: 120px 80px 80px;
+        width: 1080px;
+        height: 1920px;
+        padding: 160px 60px 100px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         opacity: 0;
         visibility: hidden;
+        z-index: 10;
       }
 
-      /* SCENE 1: HOOK */
+      /* =========================================
+         SCENE 1: THE BRUTAL HOOK
+         ========================================= */
       #scene-1 {
         text-align: center;
       }
-      .hook-tag {
+      .hook-badge {
         font-family: 'JetBrains Mono', monospace;
-        font-size: 16px;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: #8F6809;
-        margin-bottom: 32px;
-      }
-      .hook-title-1 {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 88px;
-        font-weight: 300;
-        line-height: 1.05;
-        letter-spacing: -0.02em;
-        color: #57544C;
-        margin-bottom: 16px;
-      }
-      .hook-title-2 {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 96px;
-        font-weight: 600;
-        font-style: italic;
-        line-height: 1.05;
-        letter-spacing: -0.02em;
-        color: #121212;
-      }
-      .hook-rule {
-        width: 140px;
-        height: 2px;
-        background: #8F6809;
-        margin: 40px auto 0;
-      }
-
-      /* SCENE 2: AUTHORITY & METRICS */
-      #scene-2 {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 140px 140px 100px;
-      }
-      .author-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-        width: 440px;
-      }
-      .author-img-wrap {
-        width: 320px;
-        height: 380px;
-        border-radius: 24px;
-        overflow: hidden;
-        border: 2px solid #8F6809;
-        box-shadow: 0 30px 60px rgba(0,0,0,0.12);
-        background: #ECE8DF;
-      }
-      .author-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .author-name {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 36px;
-        font-weight: 600;
-        color: #121212;
-      }
-      .author-role {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 13px;
-        letter-spacing: 0.2em;
-        color: #8F6809;
-        text-transform: uppercase;
-      }
-      .metrics-col {
-        flex: 1;
-        max-width: 880px;
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-        padding-left: 80px;
-      }
-      .wordmark-large {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 76px;
-        font-weight: 300;
-        line-height: 1;
-        letter-spacing: -0.02em;
-        color: #121212;
-      }
-      .metrics-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        margin-top: 16px;
-      }
-      .metric-box {
-        background: #ECE8DF;
-        border: 1px solid rgba(18, 18, 18, 0.12);
-        border-radius: 20px;
-        padding: 32px 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .metric-num {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 64px;
-        font-weight: 600;
-        color: #8F6809;
-        line-height: 1;
-      }
-      .metric-lbl {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: #57544C;
-      }
-
-      /* SCENE 3: SHOWCASE CARDS */
-      #scene-3 {
-        padding: 120px 80px 60px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-      .showcase-heading {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      .showcase-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 60px;
-        font-weight: 400;
-        color: #121212;
-      }
-      .showcase-sub {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 14px;
+        font-size: 20px;
+        font-weight: 700;
         letter-spacing: 0.25em;
         text-transform: uppercase;
-        color: #8F6809;
-        margin-top: 8px;
+        color: #F87171;
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.35);
+        padding: 12px 28px;
+        border-radius: 9999px;
+        margin-bottom: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
       }
-      .reels-row {
+      .hook-title {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 72px;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: #FFFFFF;
+        max-width: 900px;
+        margin-bottom: 60px;
+      }
+      .hook-title span.accent-red {
+        color: #F87171;
+        text-decoration: underline;
+        text-decoration-color: #EF4444;
+      }
+      .fluff-cards {
         display: flex;
-        gap: 36px;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 820px;
+        margin-bottom: 60px;
+      }
+      .fluff-card {
+        background: #181920;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 24px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 28px;
+        font-weight: 600;
+        color: #D1D5DB;
+      }
+      .fluff-card span.cross {
+        color: #F87171;
+        font-size: 32px;
+        font-weight: 800;
+      }
+      .hook-punch {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        color: #FBBF24;
+        text-transform: uppercase;
+        background: rgba(251, 191, 36, 0.12);
+        border: 2px solid rgba(251, 191, 36, 0.4);
+        padding: 20px 40px;
+        border-radius: 9999px;
+        box-shadow: 0 0 40px rgba(251, 191, 36, 0.25);
+      }
+
+      /* =========================================
+         SCENE 2: THE NUMBERS & PROOF EXPLOSION
+         ========================================= */
+      #scene-2 {
+        text-align: center;
+      }
+      .scene-header-tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #34D399;
+        margin-bottom: 20px;
+      }
+      .scene-heading {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 68px;
+        font-weight: 800;
+        line-height: 1.1;
+        color: #FFFFFF;
+        margin-bottom: 50px;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        width: 100%;
+        max-width: 920px;
+        margin-bottom: 50px;
+      }
+      .stat-card {
+        background: #14151C;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 28px;
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+      .stat-card.featured {
+        border-color: #FBBF24;
+        background: linear-gradient(180deg, #1C1B14 0%, #14151C 100%);
+        box-shadow: 0 0 60px rgba(251, 191, 36, 0.25);
+      }
+      .stat-card.featured-green {
+        border-color: #34D399;
+        background: linear-gradient(180deg, #11221B 0%, #14151C 100%);
+        box-shadow: 0 0 60px rgba(52, 211, 153, 0.25);
+      }
+      .stat-number {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 76px;
+        font-weight: 800;
+        line-height: 1.0;
+        color: #FBBF24;
+        margin-bottom: 12px;
+      }
+      .stat-card.featured-green .stat-number {
+        color: #34D399;
+      }
+      .stat-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #9CA3AF;
+        font-weight: 600;
+      }
+      .creator-credit {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 16px 36px;
+        border-radius: 9999px;
+      }
+      .creator-avatar {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #FBBF24;
+      }
+      .creator-info {
+        text-align: left;
+      }
+      .creator-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #FFFFFF;
+      }
+      .creator-handle {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 16px;
+        color: #FBBF24;
+      }
+
+      /* =========================================
+         SCENE 3: VIRAL REEL SHOWCASE
+         ========================================= */
+      #scene-3 {
+        text-align: center;
+      }
+      .reels-stack {
+        position: relative;
+        width: 100%;
+        max-width: 860px;
+        height: 1100px;
+        display: flex;
         justify-content: center;
         align-items: center;
       }
-      .reel-card {
-        width: 320px;
-        height: 540px;
-        border-radius: 28px;
+      .reel-phone-mockup {
+        position: absolute;
+        width: 580px;
+        height: 1000px;
+        border-radius: 44px;
         overflow: hidden;
-        background: #121212;
-        border: 2px solid rgba(184, 134, 11, 0.4);
-        box-shadow: 0 30px 60px rgba(0,0,0,0.18);
-        position: relative;
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        background: #000000;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 60px rgba(251, 191, 36, 0.2);
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
-        padding: 24px;
+        justify-content: space-between;
+        padding: 28px;
       }
-      .reel-img {
+      .reel-phone-mockup img.poster {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        opacity: 0.88;
       }
-      .reel-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
-      }
-      .reel-content {
+      .phone-top-bar {
         position: relative;
-        z-index: 10;
-        color: #FFFFFF;
+        z-index: 5;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-      .reel-badge {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: #E5C158;
-        background: rgba(0,0,0,0.6);
-        padding: 4px 10px;
-        border-radius: 20px;
-        display: inline-block;
-        margin-bottom: 8px;
-      }
-      .reel-name {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 1.15;
-      }
-
-      /* SCENE 4: FINALE */
-      #scene-4 {
-        text-align: center;
-        padding: 120px 100px;
-      }
-      .finale-super {
+      .reel-category-pill {
         font-family: 'JetBrains Mono', monospace;
         font-size: 16px;
-        letter-spacing: 0.35em;
+        font-weight: 700;
+        color: #FBBF24;
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(251, 191, 36, 0.5);
+        padding: 8px 20px;
+        border-radius: 9999px;
         text-transform: uppercase;
-        color: #8F6809;
-        margin-bottom: 24px;
       }
-      .finale-statement {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 104px;
-        font-weight: 600;
-        line-height: 1;
-        letter-spacing: -0.02em;
-        color: #121212;
-        margin-bottom: 28px;
+      .phone-bottom-info {
+        position: relative;
+        z-index: 5;
+        text-align: left;
+        background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.95) 40%);
+        padding: 40px 20px 20px;
+        border-radius: 0 0 36px 36px;
       }
-      .finale-sub {
-        font-size: 26px;
-        font-weight: 300;
-        color: #57544C;
-        max-width: 900px;
-        margin: 0 auto 48px;
-        line-height: 1.4;
+      .reel-caption-title {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: #FFFFFF;
+        margin-bottom: 16px;
+        line-height: 1.2;
       }
-      .cta-pill {
+      .reel-stats-bar {
+        display: flex;
+        gap: 16px;
+      }
+      .reel-stat-badge {
         display: inline-flex;
         align-items: center;
+        gap: 8px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 10px 20px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-blur: 10px;
+        color: #FFFFFF;
+      }
+      .reel-stat-badge.likes {
+        background: rgba(244, 63, 94, 0.25);
+        border: 1px solid rgba(244, 63, 94, 0.5);
+        color: #FDA4AF;
+      }
+      .reel-stat-badge.comments {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid rgba(59, 130, 246, 0.5);
+        color: #93C5FD;
+      }
+
+      /* =========================================
+         SCENE 4: THE 3-STEP FORMULA
+         ========================================= */
+      #scene-4 {
+        text-align: center;
+      }
+      .formula-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        max-width: 900px;
+        margin-top: 40px;
+      }
+      .step-item {
+        background: #14151C;
+        border: 2px solid rgba(255, 255, 255, 0.12);
+        border-radius: 28px;
+        padding: 36px 40px;
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        text-align: left;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      }
+      .step-number {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 54px;
+        font-weight: 800;
+        color: #FBBF24;
+        background: rgba(251, 191, 36, 0.1);
+        width: 100px;
+        height: 100px;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgba(251, 191, 36, 0.3);
+        flex-shrink: 0;
+      }
+      .step-content h3 {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: #FFFFFF;
+        margin-bottom: 8px;
+      }
+      .step-content p {
+        font-size: 22px;
+        color: #9CA3AF;
+        line-height: 1.4;
+      }
+
+      /* =========================================
+         SCENE 5: OUTRO & BOOKING CTA
+         ========================================= */
+      #scene-5 {
+        text-align: center;
+      }
+      .outro-avatar-wrapper {
+        position: relative;
+        width: 180px;
+        height: 180px;
+        margin-bottom: 36px;
+      }
+      .outro-avatar {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #FBBF24;
+        box-shadow: 0 0 60px rgba(251, 191, 36, 0.4);
+      }
+      .live-badge {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        background: #10B981;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 4px solid #0A0A0A;
+      }
+      .outro-brand-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 78px;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+        margin-bottom: 12px;
+      }
+      .outro-subline {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 24px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #FBBF24;
+        margin-bottom: 50px;
+      }
+      .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 800px;
+        margin-bottom: 50px;
+      }
+      .cta-btn-primary {
+        background: #FBBF24;
+        color: #0A0A0A;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 30px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 30px 48px;
+        border-radius: 9999px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         gap: 16px;
-        background: #8F6809;
+        box-shadow: 0 15px 50px rgba(251, 191, 36, 0.4);
+      }
+      .cta-btn-secondary {
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px solid rgba(255, 255, 255, 0.2);
         color: #FFFFFF;
         font-family: 'JetBrains Mono', monospace;
-        font-size: 16px;
+        font-size: 22px;
         font-weight: 600;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        padding: 20px 48px;
-        border-radius: 999px;
-        box-shadow: 0 16px 36px rgba(184, 134, 11, 0.3);
+        padding: 24px 40px;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
       }
-
-      /* Time indicator */
-      .time-bar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 4px;
-        background: #B8860B;
-        width: 0%;
-        z-index: 100;
+      .outro-mantra {
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+        font-size: 32px;
+        color: #9CA3AF;
+        max-width: 750px;
+        line-height: 1.4;
       }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="20"
-      data-width="1920"
-      data-height="1080"
-    >
+    <div id="root" data-composition-id="main" data-width="1080" data-height="1920">
       <div class="grain"></div>
+      <div class="glow-orb-1"></div>
+      <div class="glow-orb-2"></div>
 
-      <!-- Persistent Header -->
-      <div class="editorial-header">
-        <div>
+      <!-- Top Story Bar -->
+      <div class="top-story-bar">
+        <div style="display: flex; align-items: center;">
           <span class="brand-dot"></span>
           <span>BANIYA VISUALS WORKS</span>
         </div>
-        <div>
-          <span>EDITED BY GOVIND MADDESHIYA · 8+ YRS</span>
-        </div>
+        <div id="chapter-count">01 / 05</div>
       </div>
 
-      <!-- SCENE 1: HOOK (0s - 4.5s) -->
+      <!-- Bottom Progress Bar -->
+      <div class="progress-line-container">
+        <div id="time-bar" class="progress-line"></div>
+      </div>
+
+      <!-- =========================================
+           SCENE 1: THE BRUTAL HOOK (0.0s - 5.5s)
+           ========================================= -->
       <div id="scene-1" class="scene">
-        <p id="s1-tag" class="hook-tag">VIEWER RETENTION ARCHITECTURE</p>
-        <h2 id="s1-t1" class="hook-title-1">Most video editors build for editors.</h2>
-        <h1 id="s1-t2" class="hook-title-2">Govind builds for viewer retention.</h1>
-        <div id="s1-rule" class="hook-rule"></div>
+        <div id="s1-badge" class="hook-badge">
+          <span>⚠️ INSTAGRAM REALITY CHECK</span>
+        </div>
+        <h1 id="s1-title" class="hook-title">
+          WHY DO 99% OF REELS GET <span class="accent-red">SCROLLED PAST?</span>
+        </h1>
+        <div class="fluff-cards">
+          <div id="fluff-1" class="fluff-card">
+            <span>Slow 3-second talking intro</span>
+            <span class="cross">✕</span>
+          </div>
+          <div id="fluff-2" class="fluff-card">
+            <span>Flat pacing with zero sound design</span>
+            <span class="cross">✕</span>
+          </div>
+          <div id="fluff-3" class="fluff-card">
+            <span>Footage without a narrative hook</span>
+            <span class="cross">✕</span>
+          </div>
+        </div>
+        <div id="s1-punch" class="hook-punch">
+          THE FIRST 2 SECONDS DECIDE EVERYTHING.
+        </div>
       </div>
 
-      <!-- SCENE 2: AUTHORITY (4.5s - 9.5s) -->
+      <!-- =========================================
+           SCENE 2: THE PROOF EXPLOSION (5.5s - 12.5s)
+           ========================================= -->
       <div id="scene-2" class="scene">
-        <div id="s2-author" class="author-card">
-          <div class="author-img-wrap">
-            <img class="author-img" src="assets/images/govind-maddeshiya.jpg" alt="Govind Maddeshiya" />
+        <div id="s2-tag" class="scene-header-tag">VERIFIED RESULTS · CLIENT IMPACT</div>
+        <h2 id="s2-title" class="scene-heading">THE NUMBERS DON&apos;T LIE.</h2>
+
+        <div class="stats-grid">
+          <div id="stat-1" class="stat-card featured">
+            <span class="stat-number">500K+</span>
+            <span class="stat-label">Combined Reel Views</span>
           </div>
-          <div style="text-align: center;">
-            <div class="author-name">Govind Maddeshiya</div>
-            <div class="author-role">Director of Post-Production</div>
+          <div id="stat-2" class="stat-card featured-green">
+            <span class="stat-number">50,000+</span>
+            <span class="stat-label">Likes Across Client Reels</span>
+          </div>
+          <div id="stat-3" class="stat-card">
+            <span class="stat-number">150+</span>
+            <span class="stat-label">Retention Cuts Delivered</span>
+          </div>
+          <div id="stat-4" class="stat-card">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Retention Beat Pacing</span>
           </div>
         </div>
 
-        <div id="s2-metrics" class="metrics-col">
-          <h2 class="wordmark-large">Baniya Visuals Works</h2>
-          <p style="font-size: 22px; color: #57544C; line-height: 1.4;">
-            Eight years of meticulous keyframing, dynamic pacing, and sound design tailored for short-form virality.
-          </p>
-          <div class="metrics-grid">
-            <div class="metric-box">
-              <span class="metric-num">8+</span>
-              <span class="metric-lbl">Years Craft</span>
-            </div>
-            <div class="metric-box">
-              <span class="metric-num">500+</span>
-              <span class="metric-lbl">Reels Delivered</span>
-            </div>
-            <div class="metric-box">
-              <span class="metric-num">100%</span>
-              <span class="metric-lbl">Retention Pacing</span>
-            </div>
+        <div id="s2-creator" class="creator-credit">
+          <img src="assets/images/govind_insta_profile.jpg" alt="Govind" class="creator-avatar" />
+          <div class="creator-info">
+            <div class="creator-name">Govind Maddeshiya</div>
+            <div class="creator-handle">@baniya_visuals · Post-Production</div>
           </div>
         </div>
       </div>
 
-      <!-- SCENE 3: SHOWCASE (9.5s - 15.5s) -->
+      <!-- =========================================
+           SCENE 3: VIRAL REEL SHOWCASE (12.5s - 21.0s)
+           ========================================= -->
       <div id="scene-3" class="scene">
-        <div id="s3-head" class="showcase-heading">
-          <h2 class="showcase-title">Cinematic Short-Form Showcase</h2>
-          <p class="showcase-sub">Precision Cuts · Sound Synchronization · High Retention</p>
-        </div>
-        <div class="reels-row">
-          <div id="card-1" class="reel-card">
-            <img class="reel-img" src="assets/images/reel-1.jpg" alt="Cafe Commercial" />
-            <div class="reel-overlay"></div>
-            <div class="reel-content">
-              <span class="reel-badge">COMMERCIAL</span>
-              <div class="reel-name">Chandigarh Cafe & Restaurant</div>
+        <div id="s3-tag" class="scene-header-tag">PROVEN VIRAL CUTS</div>
+        <h2 id="s3-title" class="scene-heading">REAL AUDIENCE ENGAGEMENT.</h2>
+
+        <div class="reels-stack" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+          <!-- Phone 1: School Events (4.6K Likes) -->
+          <div id="phone-1" class="reel-phone-mockup" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+            <img src="assets/images/reel-2.jpg" alt="School Event" class="poster" />
+            <div class="phone-top-bar" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+              <span class="reel-category-pill">EVENT SHOWREEL</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #FFF;">01 / 03</span>
+            </div>
+            <div class="phone-bottom-info" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+              <h4 class="reel-caption-title">Teacher&apos;s Day Celebration At JPS School</h4>
+              <div class="reel-stats-bar">
+                <span class="reel-stat-badge likes">❤️ 4.6K Likes</span>
+                <span class="reel-stat-badge comments">💬 142 Comments</span>
+              </div>
             </div>
           </div>
-          <div id="card-2" class="reel-card">
-            <img class="reel-img" src="assets/images/reel-2.jpg" alt="School Event" />
-            <div class="reel-overlay"></div>
-            <div class="reel-content">
-              <span class="reel-badge">EVENT REEL</span>
-              <div class="reel-name">Teacher's Day Celebration</div>
+
+          <!-- Phone 2: Spiritual Cinema (5.2K Likes) -->
+          <div id="phone-2" class="reel-phone-mockup" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+            <img src="assets/images/reel-6.jpg" alt="Spiritual Cinema" class="poster" />
+            <div class="phone-top-bar" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+              <span class="reel-category-pill">CINEMATIC STORY</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #FFF;">02 / 03</span>
+            </div>
+            <div class="phone-bottom-info" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+              <h4 class="reel-caption-title">I Found Him When No One Is There</h4>
+              <div class="reel-stats-bar">
+                <span class="reel-stat-badge likes">❤️ 5.2K Likes</span>
+                <span class="reel-stat-badge comments">💬 284 Comments</span>
+              </div>
             </div>
           </div>
-          <div id="card-3" class="reel-card">
-            <img class="reel-img" src="assets/images/reel-6.jpg" alt="Spiritual Cinema" />
-            <div class="reel-overlay"></div>
-            <div class="reel-content">
-              <span class="reel-badge">CINEMATIC</span>
-              <div class="reel-name">Spiritual Ambient Cinema</div>
+
+          <!-- Phone 3: Cafe Commercial (3.8K Likes) -->
+          <div id="phone-3" class="reel-phone-mockup" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+            <img src="assets/images/reel-1.jpg" alt="Cafe Commercial" class="poster" />
+            <div class="phone-top-bar" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+              <span class="reel-category-pill">COMMERCIAL REEL</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #FFF;">03 / 03</span>
+            </div>
+            <div class="phone-bottom-info" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+              <h4 class="reel-caption-title">Chandigarh Cafe &amp; Restaurant Promo</h4>
+              <div class="reel-stats-bar">
+                <span class="reel-stat-badge likes">❤️ 3.8K Likes</span>
+                <span class="reel-stat-badge comments">💬 98 Comments</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- SCENE 4: FINALE (15.5s - 20s) -->
+      <!-- =========================================
+           SCENE 4: THE 3-STEP FORMULA (21.0s - 27.0s)
+           ========================================= -->
       <div id="scene-4" class="scene">
-        <p id="s4-super" class="finale-super">THE CLOSING MANTRA</p>
-        <h1 id="s4-heading" class="finale-statement">BANIYA MAKES REELS STICK.</h1>
-        <p id="s4-sub" class="finale-sub">
-          Turn your raw footage into stories people cannot scroll past. Available for high-impact creator batches.
-        </p>
-        <div id="s4-cta" class="cta-pill">
-          <span>Book Batch on WhatsApp ↗</span>
-          <span style="opacity: 0.7;">|</span>
-          <span style="font-weight: 400;">wa.me/916393101990</span>
+        <div id="s4-tag" class="scene-header-tag">THE RETENTION BLUEPRINT</div>
+        <h2 id="s4-title" class="scene-heading">HOW WE KEEP THEM WATCHING:</h2>
+
+        <div class="formula-steps">
+          <div id="step-1" class="step-item">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3>Hook Before Second 2</h3>
+              <p>Pattern interrupts, punch-in cuts, and dynamic motion that instantly stops the scroll.</p>
+            </div>
+          </div>
+
+          <div id="step-2" class="step-item">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3>Headphone-Grade Beat Sync</h3>
+              <p>Foley layers, bass drops, and custom sound design synced directly to timeline beats.</p>
+            </div>
+          </div>
+
+          <div id="step-3" class="step-item">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3>Mobile Velocity Curves</h3>
+              <p>Alight Motion &amp; CapCut speed ramping tuned specifically for vertical mobile displays.</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Running Time Bar -->
-      <div id="time-bar" class="time-bar"></div>
+      <!-- =========================================
+           SCENE 5: OUTRO & BOOKING CTA (27.0s - 33.0s)
+           ========================================= -->
+      <div id="scene-5" class="scene">
+        <div class="outro-avatar-wrapper">
+          <img src="assets/images/govind-portrait.jpg" alt="Govind" class="outro-avatar" />
+          <span class="live-badge"></span>
+        </div>
 
-      <!-- Audio Elements with Data Attributes -->
+        <h2 id="s5-brand" class="outro-brand-title">BANIYA VISUALS WORKS</h2>
+        <div id="s5-handle" class="outro-subline">GOVIND MADDESHIYA · @BANIYA_VISUALS</div>
+
+        <div class="cta-buttons">
+          <div id="s5-btn-1" class="cta-btn-primary">
+            <span>DM &ldquo;REEL&rdquo; ON INSTAGRAM</span>
+            <span style="font-size: 32px;">↗</span>
+          </div>
+
+          <div id="s5-btn-2" class="cta-btn-secondary">
+            <span>WHATSAPP: +91 91402 70877</span>
+            <span>💬</span>
+          </div>
+        </div>
+
+        <p id="s5-mantra" class="outro-mantra">
+          &ldquo;If it doesn&apos;t hold attention, it doesn&apos;t leave the timeline.&rdquo;
+        </p>
+      </div>
+
+      <!-- AUDIO TRACKS (NO VOICE - ONLY MUSIC & CRUNCHY SFX) -->
       <audio
-        id="voiceover"
-        data-start="0"
-        data-duration="20"
-        data-track-index="11"
-        data-volume="1.0"
-        src="assets/audio/voiceover.mp3"
+        id="bg-music"
+        data-start="0.0"
+        data-duration="33.0"
+        data-track-index="0"
+        data-volume="0.85"
+        src="assets/music/happy-beats-business-moves-vol-1-by-ende-dot-app.mp3"
+      ></audio>
+
+      <!-- Impact SFX on key beats -->
+      <audio
+        id="sfx-impact-1"
+        data-start="0.2"
+        data-duration="0.30"
+        data-track-index="1"
+        data-volume="0.6"
+        src="assets/sfx/impact/impactPlate_heavy_000.ogg"
       ></audio>
 
       <audio
-        id="bg-music"
-        data-start="0"
-        data-duration="20"
-        data-track-index="10"
-        data-volume="0.22"
-        src="assets/music/happy-beats-business-moves-vol-12-by-ende-dot-app.mp3"
+        id="sfx-impact-2"
+        data-start="3.4"
+        data-duration="0.30"
+        data-track-index="2"
+        data-volume="0.65"
+        src="assets/sfx/impact/impactPunch_heavy_000.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-drop-1"
+        data-start="5.6"
+        data-duration="0.11"
+        data-track-index="3"
+        data-volume="0.7"
+        src="assets/sfx/interface/drop_001.ogg"
       ></audio>
 
       <audio
         id="sfx-click-1"
-        data-start="0.1"
+        data-start="12.6"
         data-duration="0.10"
-        data-track-index="12"
-        data-volume="0.5"
+        data-track-index="4"
+        data-volume="0.6"
         src="assets/sfx/interface/click_001.ogg"
       ></audio>
 
       <audio
-        id="sfx-drop-2"
-        data-start="4.6"
-        data-duration="0.11"
-        data-track-index="13"
+        id="sfx-click-2"
+        data-start="15.2"
+        data-duration="0.10"
+        data-track-index="5"
         data-volume="0.6"
-        src="assets/sfx/interface/drop_001.ogg"
+        src="assets/sfx/interface/click_001.ogg"
       ></audio>
 
       <audio
         id="sfx-click-3"
-        data-start="9.6"
+        data-start="17.8"
         data-duration="0.10"
-        data-track-index="14"
-        data-volume="0.5"
+        data-track-index="6"
+        data-volume="0.6"
         src="assets/sfx/interface/click_001.ogg"
       ></audio>
 
       <audio
-        id="sfx-drop-4"
-        data-start="15.2"
-        data-duration="0.11"
-        data-track-index="15"
+        id="sfx-impact-3"
+        data-start="21.1"
+        data-duration="0.30"
+        data-track-index="7"
         data-volume="0.6"
-        src="assets/sfx/interface/drop_001.ogg"
+        src="assets/sfx/impact/impactPlate_heavy_000.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-impact-4"
+        data-start="27.1"
+        data-duration="0.35"
+        data-track-index="8"
+        data-volume="0.75"
+        src="assets/sfx/impact/impactPunch_heavy_000.ogg"
       ></audio>
     </div>
 
+    <!-- GSAP TIMELINE SCRIPT -->
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
 
-      // Overall Progress Bar
-      tl.to("#time-bar", { width: "100%", duration: 20, ease: "none" }, 0);
+      // Master Progress Bar (0 to 33s)
+      tl.to("#time-bar", { width: "100%", duration: 33.0, ease: "none" }, 0);
 
       /* ========================================================
-         SCENE 1: HOOK (0.0s - 4.5s)
+         SCENE 1: THE BRUTAL HOOK (0.0s - 5.5s)
          ======================================================== */
+      tl.set("#chapter-count", { textContent: "01 / 05" }, 0);
       tl.set("#scene-1", { autoAlpha: 1 }, 0);
-      tl.fromTo("#s1-tag", { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.2);
-      tl.fromTo("#s1-t1", { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.4);
-      tl.fromTo("#s1-t2", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.9, ease: "power3.out" }, 1.4);
-      tl.fromTo("#s1-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 1.8);
+      tl.fromTo("#s1-badge", { opacity: 0, y: -30, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 0.2);
+      tl.fromTo("#s1-title", { opacity: 0, y: 40, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 0.4);
+      
+      tl.fromTo("#fluff-1", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 1.3);
+      tl.fromTo("#fluff-2", { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 1.9);
+      tl.fromTo("#fluff-3", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 2.5);
 
-      // Scene 1 Exit
-      tl.to("#scene-1", { opacity: 0, y: -30, duration: 0.45, ease: "power2.in" }, 4.1);
-      tl.set("#scene-1", { autoAlpha: 0 }, 4.55);
+      tl.fromTo("#s1-punch", { opacity: 0, scale: 0.85, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: "back.out(1.7)" }, 3.3);
 
-      /* ========================================================
-         SCENE 2: IDENTITY & METRICS (4.5s - 9.5s)
-         ======================================================== */
-      tl.set("#scene-2", { autoAlpha: 1 }, 4.55);
-      tl.fromTo("#s2-author", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }, 4.6);
-      tl.fromTo("#s2-metrics", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }, 4.8);
-      tl.fromTo(".metric-box", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "back.out(1.2)" }, 5.4);
-
-      // Scene 2 Exit
-      tl.to("#scene-2", { opacity: 0, scale: 0.96, duration: 0.45, ease: "power2.in" }, 9.1);
-      tl.set("#scene-2", { autoAlpha: 0 }, 9.55);
+      // Exit Scene 1
+      tl.to("#scene-1", { opacity: 0, scale: 0.94, duration: 0.4, ease: "power2.in" }, 5.1);
+      tl.set("#scene-1", { autoAlpha: 0 }, 5.5);
 
       /* ========================================================
-         SCENE 3: SHOWCASE CARDS (9.5s - 15.5s)
+         SCENE 2: THE NUMBERS EXPLOSION (5.5s - 12.5s)
          ======================================================== */
-      tl.set("#scene-3", { autoAlpha: 1 }, 9.55);
-      tl.fromTo("#s3-head", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 9.6);
-      tl.fromTo("#card-1", { opacity: 0, y: 60, rotation: -2 }, { opacity: 1, y: 0, rotation: 0, duration: 0.8, ease: "power3.out" }, 10.0);
-      tl.fromTo("#card-2", { opacity: 0, y: 80, scale: 0.92 }, { opacity: 1, y: 0, scale: 1.05, duration: 0.85, ease: "power3.out" }, 10.3);
-      tl.fromTo("#card-3", { opacity: 0, y: 60, rotation: 2 }, { opacity: 1, y: 0, rotation: 0, duration: 0.8, ease: "power3.out" }, 10.6);
+      tl.set("#chapter-count", { textContent: "02 / 05" }, 5.5);
+      tl.set("#scene-2", { autoAlpha: 1 }, 5.5);
+      tl.fromTo("#s2-tag", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 5.6);
+      tl.fromTo("#s2-title", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, 5.8);
 
-      // Scene 3 Exit
-      tl.to("#scene-3", { opacity: 0, y: -40, duration: 0.45, ease: "power2.in" }, 15.1);
-      tl.set("#scene-3", { autoAlpha: 0 }, 15.55);
+      tl.fromTo("#stat-1", { opacity: 0, y: 50, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.3)" }, 6.4);
+      tl.fromTo("#stat-2", { opacity: 0, y: 50, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.3)" }, 7.1);
+      tl.fromTo("#stat-3", { opacity: 0, y: 50, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.3)" }, 7.8);
+      tl.fromTo("#stat-4", { opacity: 0, y: 50, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.3)" }, 8.5);
+
+      tl.fromTo("#s2-creator", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 9.2);
+
+      // Exit Scene 2
+      tl.to("#scene-2", { opacity: 0, y: -40, duration: 0.4, ease: "power2.in" }, 12.1);
+      tl.set("#scene-2", { autoAlpha: 0 }, 12.5);
 
       /* ========================================================
-         SCENE 4: FINALE OUTRO (15.5s - 20.0s)
+         SCENE 3: VIRAL REEL SHOWCASE (12.5s - 21.0s)
          ======================================================== */
-      tl.set("#scene-4", { autoAlpha: 1 }, 15.55);
-      tl.fromTo("#s4-super", { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 15.6);
-      tl.fromTo("#s4-heading", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" }, 15.9);
-      tl.fromTo("#s4-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 16.4);
-      tl.fromTo("#s4-cta", { opacity: 0, y: 25, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "back.out(1.4)" }, 17.0);
+      tl.set("#chapter-count", { textContent: "03 / 05" }, 12.5);
+      tl.set("#scene-3", { autoAlpha: 1 }, 12.5);
+      tl.fromTo("#s3-tag", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 12.6);
+      tl.fromTo("#s3-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 12.8);
+
+      // Phone 1 enters (School Events: 4.6K Likes)
+      tl.fromTo("#phone-1", 
+        { opacity: 0, scale: 0.85, y: 80 }, 
+        { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.2)" }, 
+        12.9
+      );
+      // Phone 1 exits cleanly
+      tl.to("#phone-1", { opacity: 0, scale: 0.9, x: -80, duration: 0.35, ease: "power2.in" }, 15.2);
+      tl.set("#phone-1", { autoAlpha: 0 }, 15.55);
+
+      // Phone 2 enters (Spiritual Cinema: 5.2K Likes)
+      tl.fromTo("#phone-2", 
+        { opacity: 0, scale: 0.85, x: 80 }, 
+        { opacity: 1, scale: 1, x: 0, duration: 0.5, ease: "back.out(1.2)" }, 
+        15.6
+      );
+      // Phone 2 exits cleanly
+      tl.to("#phone-2", { opacity: 0, scale: 0.9, x: -80, duration: 0.35, ease: "power2.in" }, 17.9);
+      tl.set("#phone-2", { autoAlpha: 0 }, 18.25);
+
+      // Phone 3 enters (Cafe Commercial: 3.8K Likes)
+      tl.fromTo("#phone-3", 
+        { opacity: 0, scale: 0.85, y: 80 }, 
+        { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.2)" }, 
+        18.3
+      );
+
+      // Exit Scene 3
+      tl.to("#scene-3", { opacity: 0, scale: 0.95, duration: 0.4, ease: "power2.in" }, 20.6);
+      tl.set("#scene-3", { autoAlpha: 0 }, 21.0);
+
+      /* ========================================================
+         SCENE 4: THE 3-STEP FORMULA (21.0s - 27.0s)
+         ======================================================== */
+      tl.set("#chapter-count", { textContent: "04 / 05" }, 21.0);
+      tl.set("#scene-4", { autoAlpha: 1 }, 21.0);
+      tl.fromTo("#s4-tag", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 21.1);
+      tl.fromTo("#s4-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 21.3);
+
+      tl.fromTo("#step-1", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "back.out(1.2)" }, 21.8);
+      tl.fromTo("#step-2", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: "back.out(1.2)" }, 23.2);
+      tl.fromTo("#step-3", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "back.out(1.2)" }, 24.6);
+
+      // Exit Scene 4
+      tl.to("#scene-4", { opacity: 0, y: -30, duration: 0.4, ease: "power2.in" }, 26.6);
+      tl.set("#scene-4", { autoAlpha: 0 }, 27.0);
+
+      /* ========================================================
+         SCENE 5: OUTRO & BOOKING CTA (27.0s - 33.0s)
+         ========================================= */
+      tl.set("#chapter-count", { textContent: "05 / 05" }, 27.0);
+      tl.set("#scene-5", { autoAlpha: 1 }, 27.0);
+      tl.fromTo(".outro-avatar-wrapper", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 27.2);
+      tl.fromTo("#s5-brand", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 27.6);
+      tl.fromTo("#s5-handle", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 28.0);
+
+      tl.fromTo("#s5-btn-1", { opacity: 0, scale: 0.88, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: "back.out(1.4)" }, 28.6);
+      tl.fromTo("#s5-btn-2", { opacity: 0, scale: 0.92, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "power2.out" }, 29.2);
+      tl.fromTo("#s5-mantra", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power2.out" }, 29.8);
 
       window.__timelines["main"] = tl;
       tl.seek(0);

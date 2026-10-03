@@ -112,14 +112,14 @@ export default function Hero() {
       />
 
       {/* 1. Instagram Story Highlights Ticker (Creator Essential) */}
-      <div className="w-full pb-8 mb-4 overflow-x-auto no-scrollbar">
+      <div className="w-full pb-4 sm:pb-6 mb-2 overflow-x-auto no-scrollbar overscroll-x-contain -mx-4 px-4 sm:mx-0 sm:px-0">
         <div className="flex items-center gap-4 sm:gap-6 min-w-max">
           <div className="flex flex-col items-center">
             <a
               href="https://www.instagram.com/baniya_visuals/"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative p-[2.5px] rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600 hover:scale-105 transition-transform"
+              className="relative p-[2.5px] rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600 hover:scale-105 active:scale-95 transition-transform"
             >
               <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-bg-primary bg-bg-card">
                 <Image
@@ -142,10 +142,10 @@ export default function Hero() {
             <a
               key={story.id}
               href="#work"
-              className="flex flex-col items-center group cursor-pointer"
+              className="flex flex-col items-center group cursor-pointer active:scale-95 transition-transform"
             >
               <div className="p-[2px] rounded-full bg-gradient-to-tr from-amber-400/80 via-rose-500/80 to-purple-600/80 group-hover:from-amber-400 group-hover:via-rose-500 group-hover:to-purple-600 group-hover:scale-105 transition-all">
-                <div className="relative w-13 h-13 sm:w-15 sm:h-15 w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] rounded-full overflow-hidden border-2 border-bg-primary bg-bg-card">
+                <div className="relative w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] rounded-full overflow-hidden border-2 border-bg-primary bg-bg-card">
                   <Image
                     src={story.image}
                     alt={story.label}
@@ -163,7 +163,7 @@ export default function Hero() {
       </div>
 
       {/* Main Grid: Creator Info & Headline on Left, Instagram Smartphone Mockup on Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto py-2 sm:py-6">
         {/* Left Column */}
         <div className="lg:col-span-7 flex flex-col gap-5 sm:gap-6 z-10">
           {/* Creator Profile Chip */}
@@ -189,7 +189,7 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-fg-primary leading-[1.1] break-words">
+          <h1 className="font-serif text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-fg-primary leading-[1.1] break-words">
             {headlineWords.map((word, i) => (
               <motion.span
                 key={i}
@@ -212,7 +212,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 pt-2">
             <a
               href="#work"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase hover:bg-accent-gold-hover hover:scale-105 active:scale-95 transition-all shadow-lg group text-center"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[48px] rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase hover:bg-accent-gold-hover hover:scale-105 active:scale-95 transition-all shadow-lg group text-center"
             >
               <span>View the work</span>
               <span className="w-6 h-6 rounded-full bg-black/10 flex items-center justify-center transition-transform group-hover:translate-y-0.5">
@@ -225,7 +225,7 @@ export default function Hero() {
                 href={siteConfig.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full border border-border-strong hover:border-accent-gold text-fg-primary font-mono text-xs tracking-wider uppercase hover:text-accent-gold transition-all text-center"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-3.5 min-h-[48px] rounded-full border border-border-strong hover:border-accent-gold text-fg-primary font-mono text-xs tracking-wider uppercase hover:text-accent-gold transition-all text-center active:scale-95"
               >
                 <span>WhatsApp me</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -235,7 +235,7 @@ export default function Hero() {
                 href={siteConfig.socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-4 py-3.5 rounded-full bg-bg-card border border-border-subtle hover:border-accent-gold text-fg-muted hover:text-accent-gold font-mono text-xs uppercase tracking-wider transition-all"
+                className="inline-flex items-center justify-center px-4 py-3.5 min-h-[48px] rounded-full bg-bg-card border border-border-subtle hover:border-accent-gold text-fg-muted hover:text-accent-gold font-mono text-xs uppercase tracking-wider transition-all active:scale-95"
               >
                 <span>@baniya_visuals ↗</span>
               </a>
@@ -281,7 +281,7 @@ export default function Hero() {
               </span>
               <button
                 onClick={nextStyle}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border-subtle bg-bg-card-subtle hover:border-accent-gold hover:text-accent-gold text-[10px] uppercase tracking-wider transition-colors active:scale-95"
+                className="flex items-center gap-1.5 px-2.5 py-1 min-h-[32px] rounded-full border border-border-subtle bg-bg-card-subtle hover:border-accent-gold hover:text-accent-gold text-[10px] uppercase tracking-wider transition-colors active:scale-95"
                 title="Cycle reel style"
               >
                 <RefreshCw className="w-3 h-3 text-accent-gold animate-spin-slow" />
@@ -417,18 +417,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Scroll Indicator */}
-      <div className="flex justify-center pt-8">
-        <a
-          href="#marquee"
-          aria-label="Scroll down to explore"
-          className="flex flex-col items-center gap-2 text-fg-dim hover:text-accent-gold transition-colors font-mono text-[10px] uppercase tracking-widest"
-        >
-          <span>Scroll</span>
-          <ArrowDown className="w-3 h-3 animate-bounce" />
-        </a>
       </div>
     </section>
   );

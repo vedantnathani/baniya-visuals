@@ -37,12 +37,12 @@ export default function SelectedWork() {
         </div>
 
         {/* Filter Chips */}
-        <div className="flex gap-2 overflow-x-auto no-scrollbar sm:flex-wrap pb-2 sm:pb-0 w-full sm:w-auto">
+        <div className="flex gap-2 overflow-x-auto no-scrollbar overscroll-x-contain sm:flex-wrap pb-2 sm:pb-0 w-full sm:w-auto -mx-4 px-4 sm:mx-0 sm:px-0">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3.5 sm:px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider shrink-0 transition-all duration-200 ${
+              className={`px-4 py-2.5 min-h-[44px] rounded-full font-mono text-xs uppercase tracking-wider shrink-0 transition-all duration-200 active:scale-95 ${
                 selectedCategory === cat
                   ? "bg-accent-gold text-black font-semibold shadow-md"
                   : "border border-border-subtle bg-bg-card text-fg-muted hover:text-fg-primary hover:border-accent-gold"
@@ -64,13 +64,17 @@ export default function SelectedWork() {
             return (
               <div
                 key={project.id}
-                onMouseEnter={() => setActiveProject(project)}
+                onMouseEnter={() => {
+                  if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+                    setActiveProject(project);
+                  }
+                }}
                 onClick={() => {
                   setActiveProject(project);
                   setModalProject(project);
                 }}
-                className={`py-6 sm:py-8 transition-all group cursor-pointer rounded-2xl ${
-                  isActive ? "bg-bg-card/60 px-3 sm:px-4 -mx-3 sm:-mx-4 shadow-sm" : "hover:bg-bg-card/30 hover:px-2 hover:-mx-2"
+                className={`py-6 sm:py-8 px-3 sm:px-4 -mx-3 sm:-mx-4 transition-all group cursor-pointer rounded-2xl active:bg-bg-card/70 ${
+                  isActive ? "bg-bg-card/60 shadow-sm" : "hover:bg-bg-card/30"
                 }`}
               >
                 <div className="flex items-start justify-between gap-3 sm:gap-4">
@@ -111,7 +115,7 @@ export default function SelectedWork() {
                             e.stopPropagation();
                             setModalProject(project);
                           }}
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-gold text-black font-semibold text-[10px] sm:text-[11px] uppercase tracking-wider hover:bg-accent-gold-hover shadow transition-all active:scale-95"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 min-h-[36px] rounded-full bg-accent-gold text-black font-semibold text-[10px] sm:text-[11px] uppercase tracking-wider hover:bg-accent-gold-hover shadow transition-all active:scale-95"
                         >
                           <Play className="w-3 h-3 fill-black" />
                           <span>Watch Reel</span>
@@ -122,7 +126,7 @@ export default function SelectedWork() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-fg-muted hover:text-accent-gold flex items-center gap-1 uppercase tracking-wider text-[10px] sm:text-[11px] transition-colors"
+                          className="text-fg-muted hover:text-accent-gold flex items-center gap-1 uppercase tracking-wider text-[10px] sm:text-[11px] transition-colors py-1"
                         >
                           <span>Instagram ↗</span>
                         </a>
@@ -136,7 +140,7 @@ export default function SelectedWork() {
                   </div>
 
                   {/* Mobile Reel Preview Thumbnail */}
-                  <div className="lg:hidden relative w-16 sm:w-20 aspect-[9/16] rounded-xl overflow-hidden shrink-0 border border-border-subtle bg-black shadow-md">
+                  <div className="lg:hidden relative w-16 sm:w-20 aspect-[9/16] rounded-xl overflow-hidden shrink-0 border border-border-subtle bg-black shadow-md active:scale-95 transition-transform">
                     <Image
                       src={project.posterUrl}
                       alt={project.title}
@@ -145,8 +149,8 @@ export default function SelectedWork() {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                      <div className="w-6 h-6 rounded-full bg-accent-gold/90 text-black flex items-center justify-center shadow">
-                        <Play className="w-3 h-3 fill-black ml-0.5" />
+                      <div className="w-7 h-7 rounded-full bg-accent-gold/90 text-black flex items-center justify-center shadow">
+                        <Play className="w-3.5 h-3.5 fill-black ml-0.5" />
                       </div>
                     </div>
                   </div>

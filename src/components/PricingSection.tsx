@@ -34,10 +34,10 @@ export default function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative flex flex-col justify-between p-6 sm:p-8 rounded-[2rem] transition-all duration-500 hover:-translate-y-1.5 ${
+              className={`relative flex flex-col justify-between p-6 sm:p-8 rounded-[2rem] transition-all duration-500 sm:hover:-translate-y-1.5 ${
                 isFeatured
                   ? "bg-bg-card border-2 border-accent-gold shadow-[0_12px_40px_var(--accent-glow)] z-10"
-                  : "bg-bg-card border border-border-subtle hover:border-accent-gold/40 hover:shadow-xl"
+                  : "bg-bg-card border border-border-subtle sm:hover:border-accent-gold/40 hover:shadow-xl"
               }`}
             >
               {/* Featured Badge */}
@@ -93,7 +93,7 @@ export default function PricingSection() {
                   href={bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-3.5 px-6 rounded-full font-mono text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 whitespace-nowrap ${
+                  className={`w-full py-3.5 px-6 min-h-[48px] rounded-full font-mono text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 whitespace-nowrap ${
                     isFeatured
                       ? "bg-accent-gold text-black hover:bg-accent-gold-hover shadow-lg"
                       : "border border-accent-gold text-accent-gold hover:bg-accent-gold hover:text-black"

@@ -170,7 +170,7 @@ export default function ContactSection() {
               href={`${siteConfig.whatsappLink}?text=${encodeURIComponent(opt.text)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full border border-border-subtle bg-bg-card hover:border-accent-gold hover:text-accent-gold text-fg-muted text-xs transition-all active:scale-95 flex items-center gap-1.5"
+              className="px-4 py-2.5 min-h-[44px] rounded-full border border-border-subtle bg-bg-card hover:border-accent-gold hover:text-accent-gold text-fg-muted text-xs transition-all active:scale-95 flex items-center gap-1.5"
             >
               <span>{opt.label}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

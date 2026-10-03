@@ -67,9 +67,9 @@ export default function ThemeToggle() {
       <button
         onClick={cycleTheme}
         aria-label={`Current visual theme: ${activeThemeObj.label}. Click to cycle themes.`}
-        className="flex items-center gap-2 px-2.5 py-1.5 rounded-full border border-border-subtle bg-bg-card/80 backdrop-blur-md hover:border-accent-gold transition-all duration-300 active:scale-95 text-fg-primary text-xs font-mono"
+        className="w-11 h-11 min-w-[44px] min-h-[44px] sm:w-auto sm:px-3 sm:py-2 flex items-center justify-center gap-2 rounded-full border border-border-subtle bg-bg-card/80 backdrop-blur-md hover:border-accent-gold transition-all duration-300 active:scale-95 text-fg-primary text-xs font-mono"
       >
-        <IconComponent className="w-3.5 h-3.5 text-accent-gold animate-pulse-slow" />
+        <IconComponent className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-accent-gold animate-pulse-slow" />
         <span className="hidden sm:inline uppercase text-[10px] tracking-wider text-fg-muted group-hover:text-fg-primary transition-colors">
           {activeThemeObj.label}
         </span>

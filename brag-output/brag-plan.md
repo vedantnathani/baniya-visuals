@@ -1,76 +1,100 @@
-# Brag Plan: Baniya Visuals Works
+# Brag Plan: Baniya Visuals Works (Instagram Vertical Edition)
 
 ## What is this app?
-An award-style editorial creative portfolio for Govind Maddeshiya (Baniya Visuals Works), an elite short-form video editor with 8+ years of craft and over 500 high-retention cinematic reels delivered.
+Baniya Visuals Works is the high-retention post-production portfolio of Govind Maddeshiya (@baniya_visuals), an Indian video editor whose vertical reels and cinematic edits have crossed hundreds of thousands of views and tens of thousands of likes.
 
 ## The angle
-Most editors treat portfolios like code repositories or generic landing pages. Baniya Visuals Works is treated like a cinematic luxury publication—clean Swiss typography, warm editorial ivory, instant live reel previews, and razor-sharp retention pacing.
+"Why your reels get scrolled past — and the exact 3-step retention formula that generated 500,000+ views and 50,000+ likes for creators." Not a slow cinematic film; an aggressive, punchy, proof-packed vertical launch video designed specifically for Instagram attention spans.
 
 ## Hook (first 2-3 seconds)
-"Most video editors build for other editors. Govind builds for viewer retention."
+Big kinetic text slap: "WHY DO 99% OF REELS GET SCROLLED PAST?" with a red crossout over "NO VIEWS" transitioning to "THE FIRST 2 SECONDS DECIDE EVERYTHING."
 
 ## Key moments (the middle)
-- **The Metric Wall:** 8+ Years Experience, 500+ Videos Edited, 100% Retention Pacing.
-- **The Craft Architecture:** Cinematic Keyframing, Micro-Sound Design, and Viral Pacing.
-- **The Editorial Showcase:** Clean typography-led layout with three switchable aesthetic visual themes.
+- **The Proof & Metrics Explosion:** 500,000+ Views Generated, 50,000+ Likes Across Reels, 150+ Edits Delivered.
+- **The Live Viral Reel Showcase:** 3 vertical phone cards showing real client cuts with live like & comment badges (School Events: 4.6K likes; Spiritual Cinema: 5.2K likes; Cafe Commercial: 3.8K likes).
+- **The Secret Retention Engine:** 01. Hook within 2 Seconds, 02. Bass & Foley Beat Sync, 03. Dynamic Velocity Curves.
 
 ## Outro / punchline
-"Baniya Visuals Works: Turn raw footage into content people actually watch."
+"Stop losing viewers. Level up your content." Followed by "@baniya_visuals — DM 'REEL' on Instagram or WhatsApp to book your next viral cut."
 
 ## User flow worth showing
-1. Browse high-retention reel showcase with instant live previews.
-2. Select customized editing packages (Reel Sprint, Creator Growth, Cinematic Commercial).
-3. One-tap direct WhatsApp collaboration without clumsy contact forms.
+Viewer seeing zero views → Discovering retention editing → Seeing real viral results & metrics → Booking the edit.
 
 ## Tone
-- Preset: `cinematic`
-- Creative direction: Warm luxury editorial product film
-- Interpretation: Elegant typography, calm deliberate cuts, rich ochre gold accents on ivory paper, confident and unhurried.
+- Preset: `chaotic` / `polished` fusion (Creator Viral)
+- Creative direction: High-energy, punchy, proof-led vertical Instagram ad
+- Interpretation: Fast cuts, kinetic type, bold metric callouts, zero cinematic drag, 100% focused on numbers and retention.
 
-## Format: landscape — 1920x1080
-## Duration: 20 seconds
+## Format: vertical — 1080x1920 (Instagram Reels / Shorts / TikTok 9:16)
+## Duration: 33.0 seconds
 
 ## Visual identity (from the project)
-- Background: `#F7F5F0` (Editorial warm ivory)
-- Surface Card: `#ECE8DF`
-- Text: `#121212` (Deep charcoal)
-- Accent: `#B8860B` (Editorial ochre gold)
-- Display font: Cormorant Garamond & Cinzel
-- Body font: Plus Jakarta Sans & JetBrains Mono
-
-## Voiceover Script (Narration Enabled)
-- **Scene 1 (0-4s):** "Most video editors build for other editors. Govind builds for viewer retention."
-- **Scene 2 (4-9s):** "Meet Baniya Visuals Works. Eight years of craft, over five hundred reels, engineered for watch time."
-- **Scene 3 (9-15s):** "Cinematic sound design, precision keyframing, and an editorial aesthetic that commands attention."
-- **Scene 4 (15-20s):** "Baniya Visuals Works. Turn your raw footage into stories people can't scroll past."
+- Background: `#0A0A0A` (Deep Cinema Black) with `#16171D` (Card Surface)
+- Accent: `#D4AF37` (Rich Gold) & `#10B981` (Metric Green) & `#EC4899` (Instagram Rose)
+- Text: `#FFFFFF` and `#9E9B93`
+- Display font: `Plus Jakarta Sans` & `Cormorant Garamond`
+- Body font: `JetBrains Mono` & `Plus Jakarta Sans`
+- Strongest visual element: Vertical 9:16 phone mockup reels with live engagement counters.
 
 ## Share copy (draft)
-Built the new portfolio for Baniya Visuals Works (@baniya_visuals). 8+ years, 500+ reels, and a typography-led editorial experience that redefines creator portfolios.
+Our edited reels crossed 500K+ views and 50K+ likes. Here's why retention editing is the only thing that matters in 2026. 🚀
 
 ## Audio direction
-- Role: Cinematic, confident, atmospheric bed with natural voiceover narration.
-- Music: `happy-beats-business-moves-vol-12-by-ende-dot-app.mp3`
-- Music treatment: Low bed under voice (0.22 volume), swells slightly during transitions, soft final decay under logo.
-- Voice narration: Natural, confident pacing synchronized with on-screen editorial titles.
-- SFX posture: Sparse, subtle interface clicks and soft paper/card arrivals.
+- Role: Dense rhythmic layer with punchy SFX
+- Voice: NONE (disabled per user request)
+- Music: `happy-beats-business-moves-vol-1-by-ende-dot-app.mp3` (driving, upbeat commercial beat)
+- Music treatment: Starts at 0.0s, high energy throughout, dips slightly during stat callouts, hits peak on reel showcase
+- SFX posture: Motion-matched impacts, swooshes, clicks, and counter pop sounds
+- Restraint rule: No harsh clipping; audio remains crisp and clean.
 
 ## Storyboard
 
-### Scene 1 — The Hook (0.0s – 4.5s)
-- **Visual:** Crisp ivory editorial canvas. Minimal typographic hook: "MOST VIDEO EDITORS BUILD FOR EDITORS." cuts to "GOVIND BUILDS FOR RETENTION." with gold accent line.
-- **Voiceover:** "Most video editors build for other editors. Govind builds for viewer retention."
-- **Transition:** Editorial wipe → Scene 2.
+### Scene 1 — The Brutal Hook — 0.0s to 5.5s (5.5s)
+- **Visuals:** Dark background with subtle gold aura. Bold kinetic text: "WHY DO 99% OF REELS GET ZERO VIEWS?"
+- Words punch in one by one: "Slow hooks." → "Boring cuts." → "Weak sound."
+- Big gold text: "THE FIRST 2 SECONDS DECIDE EVERYTHING."
+- **Audio intent:** Grabbing attention immediately with punchy whoosh and bass impacts.
+- **Audio-coupled idea:** Beat drops on text punches.
+- **Transition mood:** Hard snap → Scene 2
 
-### Scene 2 — The Identity & Numbers (4.5s – 9.5s)
-- **Visual:** "BANIYA VISUALS WORKS" display wordmark in Cormorant serif with profile portrait and three core metrics: 8+ Years Experience | 500+ Reels Delivered | 100% Pacing.
-- **Voiceover:** "Meet Baniya Visuals Works. Eight years of craft, over five hundred reels, engineered for watch time."
-- **Transition:** Slide reveal → Scene 3.
+### Scene 2 — The Numbers Don't Lie — 5.5s to 12.5s (7.0s)
+- **Visuals:** "THE NUMBERS DON'T LIE." 
+- Giant counters counting up with glowing emerald & gold badges:
+  - `500,000+` Combined Views
+  - `50,000+` Likes Across Client Reels
+  - `150+` Retention Edits Delivered
+  - `100%` Retention Pacing
+- Creator signature: "Edited by @baniya_visuals · Govind Maddeshiya"
+- **Audio intent:** Rapid rising ticks as numbers shoot up, big impact on landing.
+- **Transition mood:** Clean slide → Scene 3
 
-### Scene 3 — The Craft & Showcase (9.5s – 15.5s)
-- **Visual:** Interactive reel showcase card display with video preview frames, sound synchronization badge, and short-form craft tags (`#cinematic`, `#viral`, `#teachersday`).
-- **Voiceover:** "Cinematic sound design, precision keyframing, and an editorial aesthetic that commands attention."
-- **Transition:** Soft fade → Scene 4.
+### Scene 3 — Viral Reel Showcase — 12.5s to 21.0s (8.5s)
+- **Visuals:** Vertical phone mockups showing real viral cuts with active Instagram heart counts:
+  - Reel 1: School Event Celebration — 4.6K Likes ❤️ · 142 Comments 💬
+  - Reel 2: Spiritual Cinema — 5.2K Likes ❤️ · 284 Comments 💬
+  - Reel 3: Cafe Commercial Cut — 3.8K Likes ❤️ · 98 Comments 💬
+- Cards fan out and focus sequentially with punchy zoom.
+- **Audio intent:** Camera shutter and interface click SFX matching each reel card focus.
+- **Transition mood:** Dynamic scale-up → Scene 4
 
-### Scene 4 — The Outro (15.5s – 20.0s)
-- **Visual:** Big bold editorial mantra: "BANIYA MAKES REELS STICK." with WhatsApp booking badge and Govind Maddeshiya signature.
-- **Voiceover:** "Baniya Visuals Works. Turn your raw footage into stories people can't scroll past."
+### Scene 4 — The 3-Step Retention Engine — 21.0s to 27.0s (6.0s)
+- **Visuals:** "THE FORMULA THAT HOLDS ATTENTION:"
+  - 01. Hook within 2 Seconds (Pattern Interrupts)
+  - 02. Bass & Foley Beat Sync (Headphone Candy)
+  - 03. High-Velocity Color Grading (Instant Contrast)
+- "Turn passive scrollers into loyal followers."
+- **Audio intent:** 3 crisp impact sounds per rule.
+- **Transition mood:** Gold flash → Scene 5
+
+### Scene 5 — Outro & Booking Call to Action — 27.0s to 33.0s (6.0s)
+- **Visuals:**
+  - "READY TO 10X YOUR ENGAGEMENT?"
+  - Profile avatar with emerald "Open For Work" badge.
+  - "BANIYA VISUALS WORKS"
+  - Large button: "DM 'REEL' ON INSTAGRAM" (@baniya_visuals)
+  - "OR CHAT ON WHATSAPP: +91 91402 70877"
+  - Closing quote: "If it doesn't hold attention, it doesn't leave the timeline."
+- **Audio intent:** Full musical resolve and clean fadeout.
+
+**Music mood for this video:** Upbeat, bouncy, high-energy modern beat
+**Audio summary:** Driving beat from start to finish with crisp UI clicks and impact SFX emphasizing every key metric and reel.

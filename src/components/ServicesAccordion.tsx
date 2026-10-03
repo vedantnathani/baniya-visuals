@@ -97,9 +97,13 @@ export default function ServicesAccordion() {
           return (
             <div
               key={service.number}
-              onMouseEnter={() => setExpandedIndex(idx)}
+              onMouseEnter={() => {
+                if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+                  setExpandedIndex(idx);
+                }
+              }}
               onClick={() => toggleItem(idx)}
-              className="py-6 sm:py-8 group cursor-pointer transition-colors"
+              className="py-6 sm:py-8 group cursor-pointer transition-colors active:bg-bg-card/30 rounded-xl px-2 -mx-2"
             >
               <div className="flex items-center justify-between gap-3 sm:gap-4">
                 <div className="flex items-center gap-3.5 sm:gap-12 min-w-0">
@@ -117,8 +121,8 @@ export default function ServicesAccordion() {
                 </div>
 
                 <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-border-subtle group-hover:border-accent-gold flex items-center justify-center text-fg-muted group-hover:text-accent-gold transition-colors">
-                    {isOpen ? <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
+                  <div className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full border border-border-subtle group-hover:border-accent-gold flex items-center justify-center text-fg-muted group-hover:text-accent-gold transition-colors active:scale-95">
+                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>
                 </div>
               </div>

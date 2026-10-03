@@ -92,11 +92,11 @@ export default function Navbar() {
               </span>
             </a>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - 44px touch target */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-              className="md:hidden p-2 rounded-full border border-border-subtle bg-bg-card text-fg-primary hover:border-accent-gold transition-colors"
+              className="md:hidden w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full border border-border-subtle bg-bg-card text-fg-primary hover:border-accent-gold transition-colors active:scale-95"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -104,7 +104,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Full-screen Mobile Menu Overlay */}
+      {/* Full-screen Mobile Menu Overlay with Safe Area Insets */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -112,7 +112,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-bg-primary/95 backdrop-blur-2xl md:hidden flex flex-col justify-between p-6 pt-24 pb-8 overflow-y-auto"
+            className="fixed inset-0 z-40 bg-bg-primary/95 backdrop-blur-2xl md:hidden flex flex-col justify-between p-6 pt-[max(5.5rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] overflow-y-auto no-scrollbar"
           >
             <div className="flex flex-col gap-6">
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent-gold">
@@ -127,7 +127,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + idx * 0.05 }}
-                    className="font-serif text-3xl text-fg-primary hover:text-accent-gold transition-colors flex items-center justify-between border-b border-border-subtle pb-3"
+                    className="font-serif text-3xl text-fg-primary hover:text-accent-gold transition-colors flex items-center justify-between border-b border-border-subtle pb-3 min-h-[48px]"
                   >
                     <span>{link.name}</span>
                     <span className="font-mono text-xs text-fg-muted">0{idx + 1}</span>
@@ -142,7 +142,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenu}
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-accent-gold text-black font-semibold text-sm tracking-wider uppercase shadow-md active:scale-95 transition-all"
+                className="w-full flex items-center justify-center gap-2 py-3.5 min-h-[48px] rounded-full bg-accent-gold text-black font-semibold text-sm tracking-wider uppercase shadow-md active:scale-95 transition-all"
               >
                 <span>Chat on WhatsApp</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -151,7 +151,7 @@ export default function Navbar() {
               <a
                 href={`mailto:${siteConfig.email}`}
                 onClick={closeMenu}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-full border border-border-strong text-fg-primary hover:border-accent-gold hover:text-accent-gold font-semibold text-xs tracking-wider uppercase transition-all"
+                className="w-full flex items-center justify-center gap-2 py-3 min-h-[44px] rounded-full border border-border-strong text-fg-primary hover:border-accent-gold hover:text-accent-gold font-semibold text-xs tracking-wider uppercase transition-all"
               >
                 <span>Send Email</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

@@ -11,7 +11,34 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
-    // Ultra-fluid studio momentum scrolling
+    // Detect mobile touch devices — let mobile OS handle 120Hz native momentum scrolling
+    const isTouchDevice =
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia("(pointer: coarse)").matches;
+
+    if (isTouchDevice) {
+      const handleAnchorClick = (e: MouseEvent) => {
+        const target = (e.target as HTMLElement).closest("a");
+        if (!target) return;
+        const href = target.getAttribute("href");
+        if (href && href.startsWith("#") && href.length > 1) {
+          const element = document.querySelector(href);
+          if (element) {
+            e.preventDefault();
+            const topOffset = element.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top: topOffset, behavior: "smooth" });
+          }
+        }
+      };
+
+      document.addEventListener("click", handleAnchorClick);
+      return () => {
+        document.removeEventListener("click", handleAnchorClick);
+      };
+    }
+
+    // Ultra-fluid studio momentum scrolling for desktop wheel/trackpad
     const lenis = new Lenis({
       lerp: 0.085, // Silky smooth fluid inertia damping
       duration: 1.2,
@@ -32,7 +59,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     }
     animationFrameId = requestAnimationFrame(raf);
 
-    // Smooth scroll for all anchor hash links
+    // Smooth scroll for all anchor hash links on desktop
     const handleAnchorClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("a");
       if (!target) return;

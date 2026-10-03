@@ -48,18 +48,18 @@ export default function Footer() {
               href={siteConfig.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-1.5 rounded-full bg-accent-gold/15 text-accent-gold border border-accent-gold/40 hover:bg-accent-gold hover:text-black transition-all flex items-center gap-1.5 uppercase font-medium"
+              className="px-4 py-2.5 min-h-[44px] rounded-full bg-accent-gold/15 text-accent-gold border border-accent-gold/40 hover:bg-accent-gold hover:text-black transition-all flex items-center gap-1.5 uppercase font-medium active:scale-95"
             >
               <span>WhatsApp</span>
-              <ArrowUpRight className="w-3 h-3" />
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
 
             <a
               href={`mailto:${siteConfig.email}`}
-              className="px-3.5 py-1.5 rounded-full border border-border-strong text-fg-muted hover:border-accent-gold hover:text-accent-gold transition-all flex items-center gap-1.5 uppercase font-medium"
+              className="px-4 py-2.5 min-h-[44px] rounded-full border border-border-strong text-fg-muted hover:border-accent-gold hover:text-accent-gold transition-all flex items-center gap-1.5 uppercase font-medium active:scale-95"
             >
               <span>Email</span>
-              <ArrowUpRight className="w-3 h-3" />
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
@@ -67,7 +67,7 @@ export default function Footer() {
           <button
             onClick={scrollToTop}
             aria-label="Back to top"
-            className="flex items-center gap-2 px-4 py-2 rounded-full border border-border-subtle hover:border-accent-gold text-fg-muted hover:text-accent-gold transition-colors font-mono text-xs uppercase tracking-wider"
+            className="flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full border border-border-subtle hover:border-accent-gold text-fg-muted hover:text-accent-gold transition-colors font-mono text-xs uppercase tracking-wider active:scale-95"
           >
             <span>Top</span>
             <ArrowUp className="w-3.5 h-3.5" />

@@ -126,8 +126,8 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
           if (e.target === e.currentTarget) onClose();
         }}
       >
-        {/* Top Control Bar */}
-        <div className="fixed top-3 left-3 right-3 sm:top-6 sm:left-8 sm:right-8 flex items-center justify-between z-30 pointer-events-none">
+        {/* Top Control Bar with Safe Area Inset */}
+        <div className="fixed top-[max(0.75rem,env(safe-area-inset-top))] left-3 right-3 sm:top-6 sm:left-8 sm:right-8 flex items-center justify-between z-30 pointer-events-none">
           <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto min-w-0">
             <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-accent-gold/40 shadow shrink-0">
               <Image
@@ -179,29 +179,29 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
               href={project.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-md"
+              className="flex items-center gap-1.5 px-3 py-2 min-h-[40px] rounded-full bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-md active:scale-95"
             >
               <Instagram className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Watch on App</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
 
-            {/* Close Button */}
+            {/* Close Button - 44px min tap target */}
             <button
               onClick={onClose}
               aria-label="Close preview"
-              className="p-1.5 sm:p-2.5 rounded-full bg-white/10 hover:bg-accent-gold hover:text-black text-white transition-colors"
+              className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white/15 hover:bg-accent-gold hover:text-black text-white transition-colors active:scale-90"
             >
-              <X className="w-4 h-4 sm:w-5 sm:h-5" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         {/* Central Modal Container */}
-        <div className="relative w-full max-w-[340px] sm:max-w-[420px] my-auto pt-14 pb-3 sm:py-8 flex flex-col items-center">
+        <div className="relative w-full max-w-[340px] sm:max-w-[420px] my-auto pt-[max(4.5rem,calc(env(safe-area-inset-top)+3.5rem))] pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:py-8 flex flex-col items-center">
           {viewMode === "embed" && reelId ? (
             /* Mode: Instagram Embed Iframe (optional) */
-            <div className="relative w-full aspect-[9/16] max-h-[75dvh] sm:max-h-[78vh] rounded-[1.8rem] sm:rounded-[2rem] overflow-hidden border-2 border-white/20 bg-black shadow-2xl flex flex-col">
+            <div className="relative w-full aspect-[9/16] max-h-[72dvh] sm:max-h-[78vh] rounded-[1.8rem] sm:rounded-[2rem] overflow-hidden border-2 border-white/20 bg-black shadow-2xl flex flex-col">
               <iframe
                 src={`https://www.instagram.com/reel/${reelId}/embed/`}
                 className="w-full h-full border-none rounded-[1.8rem] sm:rounded-[2rem]"
@@ -212,7 +212,7 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
             </div>
           ) : (
             /* Primary Mode: Full HD HTML5 Reel Video Player with Complete Controls */
-            <div className="relative w-full aspect-[9/16] max-h-[75dvh] sm:max-h-[78vh] rounded-[1.8rem] sm:rounded-[2.2rem] overflow-hidden border-2 border-white/20 bg-black shadow-2xl flex flex-col justify-between p-3 sm:p-4 group select-none">
+            <div className="relative w-full aspect-[9/16] max-h-[72dvh] sm:max-h-[78vh] rounded-[1.8rem] sm:rounded-[2.2rem] overflow-hidden border-2 border-white/20 bg-black shadow-2xl flex flex-col justify-between p-3 sm:p-4 group select-none">
               {/* Working HTML5 Video Tag */}
               <video
                 ref={videoRef}
@@ -244,7 +244,7 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
                   <button
                     onClick={toggleMute}
                     aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-                    className="p-2 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white hover:text-accent-gold hover:border-accent-gold transition-colors active:scale-95"
+                    className="w-10 h-10 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white hover:text-accent-gold hover:border-accent-gold transition-colors active:scale-95"
                   >
                     {isMuted ? (
                       <VolumeX className="w-4 h-4 text-rose-400" />
@@ -289,7 +289,7 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
                   <div
                     ref={progressBarRef}
                     onClick={handleSeek}
-                    className="w-full h-2 bg-white/20 rounded-full overflow-hidden cursor-pointer hover:h-2.5 transition-all relative"
+                    className="w-full h-2.5 bg-white/20 rounded-full overflow-hidden cursor-pointer hover:h-3 transition-all relative"
                     title="Click to seek"
                   >
                     <div
@@ -324,7 +324,7 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
                   href={`${siteConfig.whatsappLink}?text=${bookingText}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 w-full py-2.5 sm:py-3 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-accent-gold-hover transition-colors shadow-lg active:scale-95"
+                  className="mt-1 w-full py-3 min-h-[44px] rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-accent-gold-hover transition-colors shadow-lg active:scale-95"
                 >
                   <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span>Book Edit Like This</span>
@@ -338,7 +338,7 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
             <div className="sm:hidden flex items-center justify-center gap-2 mt-3 w-full">
               <button
                 onClick={() => setViewMode(viewMode === "embed" ? "video" : "embed")}
-                className="text-xs font-mono text-accent-gold underline underline-offset-4"
+                className="text-xs font-mono text-accent-gold underline underline-offset-4 py-2 px-3 min-h-[40px] flex items-center"
               >
                 Switch to {viewMode === "embed" ? "HD Reel Player" : "Instagram Embed"}
               </button>

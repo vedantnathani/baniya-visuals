@@ -72,7 +72,7 @@ export default function IntroPreloader({ onComplete }: IntroPreloaderProps) {
             y: "-100%",
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="fixed inset-0 z-[10000] bg-bg-primary text-fg-primary flex flex-col justify-between p-6 sm:p-12 select-none overflow-hidden"
+          className="fixed inset-0 z-[10000] bg-bg-primary text-fg-primary flex flex-col justify-between p-6 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:p-12 select-none overflow-hidden"
         >
           {/* Top Bar */}
           <div className="flex justify-between items-center text-xs font-mono text-fg-muted gap-2">
@@ -82,7 +82,7 @@ export default function IntroPreloader({ onComplete }: IntroPreloaderProps) {
             </div>
             <button
               onClick={skipIntro}
-              className="px-2.5 sm:px-3 py-1 rounded-full border border-border-subtle hover:border-accent-gold text-[9px] sm:text-[10px] uppercase tracking-widest hover:text-accent-gold transition-colors shrink-0"
+              className="px-3.5 py-1.5 min-h-[40px] rounded-full border border-border-subtle hover:border-accent-gold text-[10px] uppercase tracking-widest hover:text-accent-gold transition-colors shrink-0 flex items-center justify-center active:scale-95"
             >
               <span>Skip</span>
               <span className="hidden sm:inline"> Intro [ESC]</span>

@@ -92,8 +92,7 @@ export default function ScrollNotes() {
               delay: idx * 0.15,
               ease: [0.16, 1, 0.3, 1],
             }}
-            whileHover={{ y: -6, transition: { duration: 0.3 } }}
-            className="group flex flex-col rounded-[2.2rem] bg-bg-card border border-border-subtle overflow-hidden hover:border-accent-gold/50 transition-all shadow-lg"
+            className="group flex flex-col rounded-[2.2rem] bg-bg-card border border-border-subtle overflow-hidden sm:hover:border-accent-gold/50 sm:hover:-translate-y-1.5 transition-all duration-300 shadow-lg"
           >
             {/* Image Header with Scrim */}
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-card-subtle">
