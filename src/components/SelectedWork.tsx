@@ -37,12 +37,12 @@ export default function SelectedWork() {
         </div>
 
         {/* Filter Chips */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex gap-2 overflow-x-auto no-scrollbar sm:flex-wrap pb-2 sm:pb-0 w-full sm:w-auto">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
+              className={`px-3.5 sm:px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider shrink-0 transition-all duration-200 ${
                 selectedCategory === cat
                   ? "bg-accent-gold text-black font-semibold shadow-md"
                   : "border border-border-subtle bg-bg-card text-fg-muted hover:text-fg-primary hover:border-accent-gold"
@@ -70,34 +70,34 @@ export default function SelectedWork() {
                   setModalProject(project);
                 }}
                 className={`py-6 sm:py-8 transition-all group cursor-pointer rounded-2xl ${
-                  isActive ? "bg-bg-card/60 px-4 -mx-4 shadow-sm" : "hover:bg-bg-card/30 hover:px-2 hover:-mx-2"
+                  isActive ? "bg-bg-card/60 px-3 sm:px-4 -mx-3 sm:-mx-4 shadow-sm" : "hover:bg-bg-card/30 hover:px-2 hover:-mx-2"
                 }`}
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-4 sm:gap-6">
-                    <span className="font-mono text-xs sm:text-sm text-accent-gold pt-1">
+                <div className="flex items-start justify-between gap-3 sm:gap-4">
+                  <div className="flex items-start gap-3 sm:gap-6 flex-1 min-w-0">
+                    <span className="font-mono text-xs sm:text-sm text-accent-gold pt-1 shrink-0">
                       {project.number}
                     </span>
-                    <div>
-                      <div className="flex items-center gap-3 mb-1.5 flex-wrap">
-                        <h3 className="font-serif text-xl sm:text-2xl text-fg-primary group-hover:text-accent-gold transition-colors font-light">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 sm:gap-3 mb-1.5 flex-wrap">
+                        <h3 className="font-serif text-lg sm:text-2xl text-fg-primary group-hover:text-accent-gold transition-colors font-light leading-snug">
                           {project.title}
                         </h3>
-                        <span className="px-2.5 py-0.5 rounded-full border border-border-subtle font-mono text-[9px] uppercase tracking-wider text-fg-muted">
+                        <span className="px-2 py-0.5 rounded-full border border-border-subtle font-mono text-[9px] uppercase tracking-wider text-fg-muted shrink-0">
                           {project.category}
                         </span>
                       </div>
 
-                      <p className="font-sans text-xs sm:text-sm text-fg-muted font-light max-w-[48ch] leading-relaxed">
+                      <p className="font-sans text-xs sm:text-sm text-fg-muted font-light max-w-[48ch] leading-relaxed line-clamp-2 sm:line-clamp-none">
                         {project.description}
                       </p>
 
                       {/* Hashtags */}
-                      <div className="flex flex-wrap gap-1.5 mt-2.5">
+                      <div className="flex flex-wrap gap-1.5 mt-2">
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="font-mono text-[10px] text-fg-dim hover:text-accent-gold transition-colors"
+                            className="font-mono text-[9px] sm:text-[10px] text-fg-dim hover:text-accent-gold transition-colors"
                           >
                             {tag}
                           </span>
@@ -105,13 +105,13 @@ export default function SelectedWork() {
                       </div>
 
                       {/* Technique notes & direct actions */}
-                      <div className="flex flex-wrap items-center gap-4 mt-3 pt-2 border-t border-border-subtle/50 text-xs font-mono">
+                      <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-3 pt-2 border-t border-border-subtle/50 text-xs font-mono">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             setModalProject(project);
                           }}
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-gold text-black font-semibold text-[11px] uppercase tracking-wider hover:bg-accent-gold-hover shadow transition-all active:scale-95"
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-gold text-black font-semibold text-[10px] sm:text-[11px] uppercase tracking-wider hover:bg-accent-gold-hover shadow transition-all active:scale-95"
                         >
                           <Play className="w-3 h-3 fill-black" />
                           <span>Watch Reel</span>
@@ -122,7 +122,7 @@ export default function SelectedWork() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-fg-muted hover:text-accent-gold flex items-center gap-1 uppercase tracking-wider text-[11px] transition-colors"
+                          className="text-fg-muted hover:text-accent-gold flex items-center gap-1 uppercase tracking-wider text-[10px] sm:text-[11px] transition-colors"
                         >
                           <span>Instagram ↗</span>
                         </a>
@@ -135,13 +135,29 @@ export default function SelectedWork() {
                     </div>
                   </div>
 
+                  {/* Mobile Reel Preview Thumbnail */}
+                  <div className="lg:hidden relative w-16 sm:w-20 aspect-[9/16] rounded-xl overflow-hidden shrink-0 border border-border-subtle bg-black shadow-md">
+                    <Image
+                      src={project.posterUrl}
+                      alt={project.title}
+                      fill
+                      sizes="80px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full bg-accent-gold/90 text-black flex items-center justify-center shadow">
+                        <Play className="w-3 h-3 fill-black ml-0.5" />
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Play Action button on desktop */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       setModalProject(project);
                     }}
-                    className="flex items-center justify-center w-11 h-11 rounded-full border border-accent-gold/40 bg-accent-gold/10 text-accent-gold group-hover:bg-accent-gold group-hover:text-black transition-all shrink-0 mt-1 shadow-md hover:scale-105 active:scale-95"
+                    className="hidden lg:flex items-center justify-center w-11 h-11 rounded-full border border-accent-gold/40 bg-accent-gold/10 text-accent-gold group-hover:bg-accent-gold group-hover:text-black transition-all shrink-0 mt-1 shadow-md hover:scale-105 active:scale-95"
                     aria-label={`Watch reel preview for ${project.title}`}
                   >
                     <Play className="w-4 h-4 fill-current ml-0.5" />

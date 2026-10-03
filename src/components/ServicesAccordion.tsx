@@ -101,24 +101,24 @@ export default function ServicesAccordion() {
               onClick={() => toggleItem(idx)}
               className="py-6 sm:py-8 group cursor-pointer transition-colors"
             >
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-6 sm:gap-12">
-                  <span className="font-mono text-sm sm:text-base text-accent-gold">
+              <div className="flex items-center justify-between gap-3 sm:gap-4">
+                <div className="flex items-center gap-3.5 sm:gap-12 min-w-0">
+                  <span className="font-mono text-xs sm:text-base text-accent-gold shrink-0">
                     {service.number}
                   </span>
-                  <div>
-                    <h3 className="font-serif text-2xl sm:text-4xl text-fg-primary group-hover:text-accent-gold transition-colors font-light">
+                  <div className="min-w-0">
+                    <h3 className="font-serif text-lg sm:text-3xl lg:text-4xl text-fg-primary group-hover:text-accent-gold transition-colors font-light leading-snug">
                       {service.title}
                     </h3>
-                    <p className="font-sans text-xs sm:text-sm text-fg-muted font-light mt-1">
+                    <p className="font-sans text-xs sm:text-sm text-fg-muted font-light mt-0.5 sm:mt-1 line-clamp-1 sm:line-clamp-none">
                       {service.subtitle}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full border border-border-subtle group-hover:border-accent-gold flex items-center justify-center text-fg-muted group-hover:text-accent-gold transition-colors">
-                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-border-subtle group-hover:border-accent-gold flex items-center justify-center text-fg-muted group-hover:text-accent-gold transition-colors">
+                    {isOpen ? <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                   </div>
                 </div>
               </div>
@@ -133,15 +133,15 @@ export default function ServicesAccordion() {
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="pt-6 sm:pt-8 pl-12 sm:pl-20 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                      <p className="md:col-span-8 font-sans text-sm sm:text-base text-fg-muted font-light leading-relaxed">
+                    <div className="pt-4 sm:pt-8 pl-0 sm:pl-16 grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-center">
+                      <p className="md:col-span-8 font-sans text-xs sm:text-base text-fg-muted font-light leading-relaxed">
                         {service.details}
                       </p>
-                      <div className="md:col-span-4 flex flex-wrap gap-2">
+                      <div className="md:col-span-4 flex flex-wrap gap-1.5 sm:gap-2">
                         {service.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-3 py-1 rounded-full border border-border-subtle bg-bg-card font-mono text-[10px] uppercase tracking-wider text-accent-gold"
+                            className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-border-subtle bg-bg-card font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-accent-gold"
                           >
                             {tag}
                           </span>

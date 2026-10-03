@@ -75,16 +75,17 @@ export default function IntroPreloader({ onComplete }: IntroPreloaderProps) {
           className="fixed inset-0 z-[10000] bg-bg-primary text-fg-primary flex flex-col justify-between p-6 sm:p-12 select-none overflow-hidden"
         >
           {/* Top Bar */}
-          <div className="flex justify-between items-center text-xs font-mono text-fg-muted">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent-gold animate-ping" />
-              <span className="uppercase tracking-widest text-[10px]">LOADING SHOWREEL · @baniya_visuals</span>
+          <div className="flex justify-between items-center text-xs font-mono text-fg-muted gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+              <span className="w-2 h-2 rounded-full bg-accent-gold animate-ping shrink-0" />
+              <span className="uppercase tracking-widest text-[9px] sm:text-[10px] truncate">LOADING · @baniya_visuals</span>
             </div>
             <button
               onClick={skipIntro}
-              className="px-3 py-1 rounded-full border border-border-subtle hover:border-accent-gold text-[10px] uppercase tracking-widest hover:text-accent-gold transition-colors"
+              className="px-2.5 sm:px-3 py-1 rounded-full border border-border-subtle hover:border-accent-gold text-[9px] sm:text-[10px] uppercase tracking-widest hover:text-accent-gold transition-colors shrink-0"
             >
-              Skip Intro [ESC]
+              <span>Skip</span>
+              <span className="hidden sm:inline"> Intro [ESC]</span>
             </button>
           </div>
 

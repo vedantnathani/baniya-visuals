@@ -32,7 +32,7 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-fg-primary tracking-tight mb-6"
+          className="font-serif text-3xl sm:text-5xl lg:text-7xl font-light text-fg-primary tracking-tight mb-4 sm:mb-6"
         >
           LET&apos;S WORK <span className="italic-serif-accent">TOGETHER.</span>
         </motion.h2>
@@ -42,7 +42,7 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-sans text-lg sm:text-2xl text-fg-muted font-light max-w-[38ch] mx-auto leading-relaxed"
+          className="font-sans text-base sm:text-2xl text-fg-muted font-light max-w-[38ch] mx-auto leading-relaxed"
         >
           &ldquo;{siteConfig.closingMantra}&rdquo;
         </motion.p>
@@ -59,16 +59,16 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="group relative p-8 rounded-[2rem] bg-gradient-to-b from-bg-card to-bg-card-subtle border-2 border-accent-gold/40 hover:border-accent-gold hover:shadow-[0_12px_40px_var(--accent-glow)] transition-all duration-300 flex flex-col justify-between"
+          className="group relative p-6 sm:p-8 rounded-[1.8rem] sm:rounded-[2rem] bg-gradient-to-b from-bg-card to-bg-card-subtle border-2 border-accent-gold/40 hover:border-accent-gold hover:shadow-[0_12px_40px_var(--accent-glow)] transition-all duration-300 flex flex-col justify-between"
         >
           <div>
-            <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <MessageCircle className="w-7 h-7" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 transition-transform">
+              <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
             </div>
-            <span className="text-[11px] font-medium uppercase tracking-wider text-emerald-400 block mb-1">
+            <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-emerald-400 block mb-1">
               Fastest Response · Instant Chat
             </span>
-            <h3 className="font-serif text-2xl text-fg-primary font-normal mb-2">
+            <h3 className="font-serif text-xl sm:text-2xl text-fg-primary font-normal mb-2">
               Chat on WhatsApp
             </h3>
             <p className="font-sans text-xs sm:text-sm text-fg-muted font-light leading-relaxed">
@@ -76,8 +76,8 @@ export default function ContactSection() {
             </p>
           </div>
 
-          <div className="pt-8">
-            <span className="w-full py-3.5 px-6 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 group-hover:bg-accent-gold-hover shadow-lg transition-colors">
+          <div className="pt-6 sm:pt-8">
+            <span className="w-full py-3 sm:py-3.5 px-6 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 group-hover:bg-accent-gold-hover shadow-lg transition-colors">
               <span>Message on WhatsApp</span>
               <ArrowUpRight className="w-4 h-4" />
             </span>
@@ -91,16 +91,16 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="group relative p-8 rounded-[2rem] bg-bg-card border border-border-subtle hover:border-accent-gold/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+          className="group relative p-6 sm:p-8 rounded-[1.8rem] sm:rounded-[2rem] bg-bg-card border border-border-subtle hover:border-accent-gold/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
         >
           <div>
-            <div className="w-14 h-14 rounded-2xl bg-accent-gold/10 text-accent-gold border border-accent-gold/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Mail className="w-7 h-7" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accent-gold/10 text-accent-gold border border-accent-gold/20 flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 transition-transform">
+              <Mail className="w-6 h-6 sm:w-7 sm:h-7" />
             </div>
-            <span className="text-[11px] font-medium uppercase tracking-wider text-fg-dim block mb-1">
+            <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-fg-dim block mb-1">
               Commercial / Retainer Briefs
             </span>
-            <h3 className="font-serif text-2xl text-fg-primary font-normal mb-2">
+            <h3 className="font-serif text-xl sm:text-2xl text-fg-primary font-normal mb-2">
               Send Email
             </h3>
             <p className="font-sans text-xs sm:text-sm text-fg-muted font-light leading-relaxed">
@@ -108,8 +108,8 @@ export default function ContactSection() {
             </p>
           </div>
 
-          <div className="pt-8">
-            <span className="w-full py-3.5 px-6 rounded-full border border-border-strong hover:border-accent-gold text-fg-primary group-hover:text-accent-gold font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
+          <div className="pt-6 sm:pt-8">
+            <span className="w-full py-3 sm:py-3.5 px-6 rounded-full border border-border-strong hover:border-accent-gold text-fg-primary group-hover:text-accent-gold font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
               <span>Send an Email</span>
               <ArrowUpRight className="w-4 h-4" />
             </span>
@@ -125,16 +125,16 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="group relative p-8 rounded-[2rem] bg-bg-card border border-border-subtle hover:border-accent-gold/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+          className="group relative p-6 sm:p-8 rounded-[1.8rem] sm:rounded-[2rem] bg-bg-card border border-border-subtle hover:border-accent-gold/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
         >
           <div>
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500/20 via-rose-500/20 to-purple-600/20 text-rose-400 border border-rose-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Instagram className="w-7 h-7" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-amber-500/20 via-rose-500/20 to-purple-600/20 text-rose-400 border border-rose-500/30 flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 transition-transform">
+              <Instagram className="w-6 h-6 sm:w-7 sm:h-7" />
             </div>
-            <span className="text-[11px] font-medium uppercase tracking-wider text-fg-dim block mb-1">
+            <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-fg-dim block mb-1">
               Social Direct Message
             </span>
-            <h3 className="font-serif text-2xl text-fg-primary font-normal mb-2">
+            <h3 className="font-serif text-xl sm:text-2xl text-fg-primary font-normal mb-2">
               DM on Instagram
             </h3>
             <p className="font-sans text-xs sm:text-sm text-fg-muted font-light leading-relaxed">
@@ -142,8 +142,8 @@ export default function ContactSection() {
             </p>
           </div>
 
-          <div className="pt-8">
-            <span className="w-full py-3.5 px-6 rounded-full border border-border-strong hover:border-accent-gold text-fg-primary group-hover:text-accent-gold font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
+          <div className="pt-6 sm:pt-8">
+            <span className="w-full py-3 sm:py-3.5 px-6 rounded-full border border-border-strong hover:border-accent-gold text-fg-primary group-hover:text-accent-gold font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
               <span>Open Instagram DM</span>
               <ArrowUpRight className="w-4 h-4" />
             </span>

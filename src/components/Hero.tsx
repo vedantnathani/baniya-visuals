@@ -165,10 +165,10 @@ export default function Hero() {
       {/* Main Grid: Creator Info & Headline on Left, Instagram Smartphone Mockup on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center my-auto">
         {/* Left Column */}
-        <div className="lg:col-span-7 flex flex-col gap-6 z-10">
+        <div className="lg:col-span-7 flex flex-col gap-5 sm:gap-6 z-10">
           {/* Creator Profile Chip */}
-          <div className="inline-flex items-center gap-3 p-1.5 pr-4 rounded-full border border-border-subtle bg-bg-card/70 backdrop-blur-md w-fit">
-            <div className="relative w-7 h-7 rounded-full overflow-hidden border border-accent-gold/40">
+          <div className="inline-flex items-center gap-2 sm:gap-3 p-1.5 pr-3 sm:pr-4 rounded-full border border-border-subtle bg-bg-card/70 backdrop-blur-md max-w-full overflow-hidden">
+            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border border-accent-gold/40 shrink-0">
               <Image
                 src={siteConfig.profilePhoto}
                 alt={siteConfig.name}
@@ -176,27 +176,27 @@ export default function Hero() {
                 className="object-cover"
               />
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 shrink-0">
               <span className="font-mono text-xs text-accent-gold font-semibold">
                 {siteConfig.handle}
               </span>
               <CheckCircle className="w-3.5 h-3.5 fill-accent-gold text-black" />
             </div>
-            <span className="text-fg-dim text-xs">·</span>
-            <span className="font-mono text-[11px] text-fg-muted uppercase tracking-wider">
+            <span className="text-fg-dim text-xs shrink-0">·</span>
+            <span className="font-mono text-[10px] sm:text-[11px] text-fg-muted uppercase tracking-wider truncate">
               {siteConfig.title}
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-fg-primary leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-fg-primary leading-[1.1] break-words">
             {headlineWords.map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * i, ease: [0.16, 1, 0.3, 1] }}
-                className={word.isAccent ? "italic-serif-accent mx-2" : "inline-block mr-2"}
+                className={word.isAccent ? "italic-serif-accent mx-1 sm:mx-2" : "inline-block mr-1.5 sm:mr-2"}
               >
                 {word.text}
               </motion.span>
@@ -204,15 +204,15 @@ export default function Hero() {
           </h1>
 
           {/* Subline */}
-          <p className="font-sans text-base sm:text-lg text-fg-muted max-w-[50ch] font-light leading-relaxed">
+          <p className="font-sans text-sm sm:text-base lg:text-lg text-fg-muted max-w-[50ch] font-light leading-relaxed">
             Reels · Shorts · Cinematic edits · YouTube content. Strong pacing and sound design that holds viewer attention.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 pt-2">
             <a
               href="#work"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase hover:bg-accent-gold-hover hover:scale-105 active:scale-95 transition-all shadow-lg group"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase hover:bg-accent-gold-hover hover:scale-105 active:scale-95 transition-all shadow-lg group text-center"
             >
               <span>View the work</span>
               <span className="w-6 h-6 rounded-full bg-black/10 flex items-center justify-center transition-transform group-hover:translate-y-0.5">
@@ -220,51 +220,51 @@ export default function Hero() {
               </span>
             </a>
 
-            <a
-              href={siteConfig.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border-strong hover:border-accent-gold text-fg-primary font-mono text-xs tracking-wider uppercase hover:text-accent-gold transition-all"
-            >
-              <span>WhatsApp me</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <a
+                href={siteConfig.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full border border-border-strong hover:border-accent-gold text-fg-primary font-mono text-xs tracking-wider uppercase hover:text-accent-gold transition-all text-center"
+              >
+                <span>WhatsApp me</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
 
-            <a
-              href={siteConfig.socialLinks.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-3.5 rounded-full bg-bg-card border border-border-subtle hover:border-accent-gold text-fg-muted hover:text-accent-gold font-mono text-xs uppercase tracking-wider transition-all"
-            >
-              <span>@baniya_visuals ↗</span>
-            </a>
+              <a
+                href={siteConfig.socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-4 py-3.5 rounded-full bg-bg-card border border-border-subtle hover:border-accent-gold text-fg-muted hover:text-accent-gold font-mono text-xs uppercase tracking-wider transition-all"
+              >
+                <span>@baniya_visuals ↗</span>
+              </a>
+            </div>
           </div>
 
           {/* Stats Bar */}
-          <div className="pt-6 border-t border-border-subtle flex items-center gap-8 text-xs font-mono text-fg-muted">
-            <div className="flex flex-col">
-              <span className="font-serif text-2xl font-normal text-fg-primary">
+          <div className="pt-6 border-t border-border-subtle grid grid-cols-3 divide-x divide-border-subtle text-xs font-mono text-fg-muted">
+            <div className="flex flex-col pr-2">
+              <span className="font-serif text-xl sm:text-2xl font-normal text-fg-primary">
                 {siteConfig.stats.experience}
               </span>
-              <span className="uppercase text-[10px] tracking-wider text-fg-muted">
+              <span className="uppercase text-[9px] sm:text-[10px] tracking-wider text-fg-muted">
                 Experience
               </span>
             </div>
-            <div className="w-[1px] h-8 bg-border-subtle" />
-            <div className="flex flex-col">
-              <span className="font-serif text-2xl font-normal text-accent-gold">
+            <div className="flex flex-col px-2 sm:px-4 text-center">
+              <span className="font-serif text-xl sm:text-2xl font-normal text-accent-gold">
                 {siteConfig.stats.videosEdited}
               </span>
-              <span className="uppercase text-[10px] tracking-wider text-fg-muted">
+              <span className="uppercase text-[9px] sm:text-[10px] tracking-wider text-fg-muted">
                 Delivered
               </span>
             </div>
-            <div className="w-[1px] h-8 bg-border-subtle" />
-            <div className="flex flex-col">
-              <span className="font-serif text-2xl font-normal text-fg-primary">
+            <div className="flex flex-col pl-2 sm:pl-4 text-right sm:text-left">
+              <span className="font-serif text-xl sm:text-2xl font-normal text-fg-primary">
                 100%
               </span>
-              <span className="uppercase text-[10px] tracking-wider text-fg-muted">
+              <span className="uppercase text-[9px] sm:text-[10px] tracking-wider text-fg-muted truncate">
                 Retention Pacing
               </span>
             </div>
@@ -272,8 +272,8 @@ export default function Hero() {
         </div>
 
         {/* Right Column: Smartphone Instagram Reel Mockup */}
-        <div className="lg:col-span-5 flex flex-col items-center lg:items-end">
-          <div className="relative w-full max-w-[320px] sm:max-w-[340px] p-2 rounded-[2.4rem] bg-bg-card border-2 border-border-subtle shadow-2xl backdrop-blur-xl">
+        <div className="lg:col-span-5 flex flex-col items-center lg:items-end w-full">
+          <div className="relative w-full max-w-[280px] sm:max-w-[340px] p-2 rounded-[2.2rem] sm:rounded-[2.4rem] bg-bg-card border-2 border-border-subtle shadow-2xl backdrop-blur-xl">
             {/* Top Phone Header */}
             <div className="flex items-center justify-between px-3 py-2 border-b border-border-subtle mb-2 font-mono text-xs">
               <span className="text-accent-gold font-medium tracking-wider">

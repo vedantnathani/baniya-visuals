@@ -127,9 +127,9 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
         }}
       >
         {/* Top Control Bar */}
-        <div className="fixed top-4 left-4 right-4 sm:top-6 sm:left-8 sm:right-8 flex items-center justify-between z-30 pointer-events-none">
-          <div className="flex items-center gap-3 pointer-events-auto">
-            <div className="relative w-9 h-9 rounded-full overflow-hidden border border-accent-gold/40 shadow">
+        <div className="fixed top-3 left-3 right-3 sm:top-6 sm:left-8 sm:right-8 flex items-center justify-between z-30 pointer-events-none">
+          <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto min-w-0">
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-accent-gold/40 shadow shrink-0">
               <Image
                 src={siteConfig.profilePhoto}
                 alt={siteConfig.name}
@@ -137,17 +137,17 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
                 className="object-cover"
               />
             </div>
-            <div>
-              <span className="text-[10px] font-mono text-accent-gold uppercase tracking-wider block">
+            <div className="min-w-0">
+              <span className="text-[9px] sm:text-[10px] font-mono text-accent-gold uppercase tracking-wider block">
                 {project.number} · {project.category}
               </span>
-              <h3 className="font-serif text-sm sm:text-base text-white font-light line-clamp-1 max-w-[200px] sm:max-w-md">
+              <h3 className="font-serif text-xs sm:text-base text-white font-light truncate max-w-[130px] sm:max-w-md">
                 {project.title}
               </h3>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 pointer-events-auto">
+          <div className="flex items-center gap-2 pointer-events-auto shrink-0">
             {/* View Mode Switcher */}
             {reelId && (
               <div className="hidden sm:flex items-center p-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-mono">
@@ -179,7 +179,7 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
               href={project.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-md"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 text-white font-semibold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-md"
             >
               <Instagram className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Watch on App</span>
@@ -190,21 +190,21 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
             <button
               onClick={onClose}
               aria-label="Close preview"
-              className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-accent-gold hover:text-black text-white transition-colors"
+              className="p-1.5 sm:p-2.5 rounded-full bg-white/10 hover:bg-accent-gold hover:text-black text-white transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
 
         {/* Central Modal Container */}
-        <div className="relative w-full max-w-[420px] my-auto pt-16 pb-4 sm:py-8 flex flex-col items-center">
+        <div className="relative w-full max-w-[340px] sm:max-w-[420px] my-auto pt-14 pb-3 sm:py-8 flex flex-col items-center">
           {viewMode === "embed" && reelId ? (
             /* Mode: Instagram Embed Iframe (optional) */
-            <div className="relative w-full aspect-[9/16] max-h-[78vh] rounded-[2rem] overflow-hidden border-2 border-white/20 bg-black shadow-2xl flex flex-col">
+            <div className="relative w-full aspect-[9/16] max-h-[75dvh] sm:max-h-[78vh] rounded-[1.8rem] sm:rounded-[2rem] overflow-hidden border-2 border-white/20 bg-black shadow-2xl flex flex-col">
               <iframe
                 src={`https://www.instagram.com/reel/${reelId}/embed/`}
-                className="w-full h-full border-none rounded-[2rem]"
+                className="w-full h-full border-none rounded-[1.8rem] sm:rounded-[2rem]"
                 allowFullScreen
                 scrolling="no"
                 title={project.title}
@@ -212,7 +212,7 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
             </div>
           ) : (
             /* Primary Mode: Full HD HTML5 Reel Video Player with Complete Controls */
-            <div className="relative w-full aspect-[9/16] max-h-[78vh] rounded-[2.2rem] overflow-hidden border-2 border-white/20 bg-black shadow-2xl flex flex-col justify-between p-4 group select-none">
+            <div className="relative w-full aspect-[9/16] max-h-[75dvh] sm:max-h-[78vh] rounded-[1.8rem] sm:rounded-[2.2rem] overflow-hidden border-2 border-white/20 bg-black shadow-2xl flex flex-col justify-between p-3 sm:p-4 group select-none">
               {/* Working HTML5 Video Tag */}
               <video
                 ref={videoRef}
@@ -299,17 +299,17 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
                   </div>
                 </div>
 
-                <h4 className="font-serif text-lg font-light leading-snug line-clamp-1">
+                <h4 className="font-serif text-base sm:text-lg font-light leading-snug line-clamp-1">
                   {project.title}
                 </h4>
 
-                <p className="font-sans text-xs text-white/80 font-light line-clamp-2">
+                <p className="font-sans text-[11px] sm:text-xs text-white/80 font-light line-clamp-1 sm:line-clamp-2">
                   {project.description}
                 </p>
 
                 {/* Hashtags */}
                 <div className="flex flex-wrap gap-1">
-                  {project.tags.map((tag) => (
+                  {project.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
                       className="font-mono text-[9px] text-white/70 bg-white/10 px-2 py-0.5 rounded"
@@ -324,9 +324,9 @@ export default function VideoModal({ project, onClose }: VideoModalProps) {
                   href={`${siteConfig.whatsappLink}?text=${bookingText}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 w-full py-3 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-accent-gold-hover transition-colors shadow-lg active:scale-95"
+                  className="mt-1 w-full py-2.5 sm:py-3 rounded-full bg-accent-gold text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-accent-gold-hover transition-colors shadow-lg active:scale-95"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span>Book Edit Like This</span>
                 </a>
               </div>

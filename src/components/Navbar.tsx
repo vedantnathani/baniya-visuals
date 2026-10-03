@@ -27,6 +27,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const closeMenu = () => setIsOpen(false);
 
   return (
@@ -101,7 +112,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-bg-primary/95 backdrop-blur-2xl md:hidden flex flex-col justify-between p-6 pt-28"
+            className="fixed inset-0 z-40 bg-bg-primary/95 backdrop-blur-2xl md:hidden flex flex-col justify-between p-6 pt-24 pb-8 overflow-y-auto"
           >
             <div className="flex flex-col gap-6">
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent-gold">

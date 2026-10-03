@@ -35,17 +35,17 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
 
               {/* Inset Creator Label */}
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-white flex items-end justify-between">
-                <div>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-accent-gold font-semibold">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3 sm:p-4 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 text-white flex items-end justify-between gap-2">
+                <div className="min-w-0">
+                  <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-accent-gold font-semibold truncate">
                     {siteConfig.name}
                   </p>
-                  <p className="font-serif text-lg font-light">
+                  <p className="font-serif text-base sm:text-lg font-light truncate">
                     {siteConfig.brandName}
                   </p>
-                  <div className="flex items-center gap-1 font-mono text-[10px] text-white/70 mt-1">
-                    <MapPin className="w-3 h-3 text-accent-gold" />
-                    <span>Dudahi / Tamkuhi Road · India</span>
+                  <div className="flex items-center gap-1 font-mono text-[9px] sm:text-[10px] text-white/70 mt-0.5 sm:mt-1 truncate">
+                    <MapPin className="w-3 h-3 text-accent-gold shrink-0" />
+                    <span className="truncate">Dudahi / Tamkuhi Road · India</span>
                   </div>
                 </div>
 
@@ -53,7 +53,7 @@ export default function AboutSection() {
                   href={siteConfig.socialLinks.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full bg-accent-gold text-black hover:scale-110 transition-transform"
+                  className="p-2 sm:p-2.5 rounded-full bg-accent-gold text-black hover:scale-110 transition-transform shrink-0"
                   aria-label="Instagram Profile"
                 >
                   <Instagram className="w-4 h-4" />
