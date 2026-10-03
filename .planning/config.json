@@ -1,0 +1,10 @@
+{
+  "mode": "auto",
+  "dials": {
+    "DESIGN_VARIANCE": 8,
+    "MOTION_INTENSITY": 7,
+    "VISUAL_DENSITY": 4
+  },
+  "aesthetic": "Cinematic Editorial",
+  "framework": "nextjs"
+}
