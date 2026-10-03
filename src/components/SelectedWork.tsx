@@ -21,7 +21,8 @@ export default function SelectedWork() {
       : projectsData.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="work" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="work" className="w-full">
+      <div className="max-w-7xl mx-auto py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 border-b border-border-subtle pb-8">
         <div>
@@ -238,6 +239,7 @@ export default function SelectedWork() {
 
       {/* Modal Video Player */}
       <VideoModal project={modalProject} onClose={() => setModalProject(null)} />
+      </div>
     </section>
   );
 }

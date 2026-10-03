@@ -19,7 +19,7 @@ export default function Home() {
       <IntroPreloader />
       <Navbar />
 
-      <main className="relative z-10 flex flex-col min-h-screen">
+      <main className="relative z-10 flex flex-col min-h-screen w-full">
         <Hero />
         <MarqueeStrip />
         <SelectedWork />

@@ -13,7 +13,8 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-border-subtle">
+    <section id="contact" className="w-full border-t border-border-subtle">
+      <div className="max-w-7xl mx-auto py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
         <motion.div
@@ -193,6 +194,7 @@ export default function ContactSection() {
           </span>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 }

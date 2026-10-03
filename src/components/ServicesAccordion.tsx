@@ -73,7 +73,8 @@ export default function ServicesAccordion() {
   };
 
   return (
-    <section id="services" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-border-subtle">
+    <section id="services" className="w-full border-t border-border-subtle">
+      <div className="max-w-7xl mx-auto py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
         <div>
@@ -158,6 +159,7 @@ export default function ServicesAccordion() {
             </div>
           );
         })}
+      </div>
       </div>
     </section>
   );

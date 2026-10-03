@@ -6,7 +6,8 @@ import { ArrowUpRight, Check } from "lucide-react";
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-border-subtle">
+    <section id="pricing" className="w-full border-t border-border-subtle">
+      <div className="max-w-7xl mx-auto py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       {/* Heading & Subline */}
       <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-gold/10 border border-accent-gold/30 text-accent-gold text-xs uppercase tracking-wider font-medium mb-3">
@@ -113,6 +114,7 @@ export default function PricingSection() {
         <p className="font-sans text-xs sm:text-sm text-fg-dim font-light max-w-xl mx-auto">
           Final price depends on video length, footage and effects. Message me for a custom quote.
         </p>
+      </div>
       </div>
     </section>
   );

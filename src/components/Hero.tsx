@@ -103,13 +103,15 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-[100dvh] pt-24 pb-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-between max-w-7xl mx-auto overflow-hidden">
+    <section className="relative w-full min-h-[100dvh] overflow-hidden">
       {/* Glow highlight */}
       <div
         className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full pointer-events-none opacity-20 blur-[130px]"
         style={{ background: "radial-gradient(circle, var(--accent-gold) 0%, transparent 70%)" }}
         aria-hidden="true"
       />
+      {/* Inner container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 flex flex-col justify-between min-h-[100dvh]">
 
       {/* 1. Instagram Story Highlights Ticker (Creator Essential) */}
       <div className="w-full pb-4 sm:pb-6 mb-2 overflow-x-auto no-scrollbar overscroll-x-contain -mx-4 px-4 sm:mx-0 sm:px-0">
@@ -417,6 +419,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

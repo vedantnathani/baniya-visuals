@@ -7,7 +7,8 @@ import { Sparkles, CheckCircle2, ArrowUpRight, MapPin, Instagram } from "lucide-
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-border-subtle">
+    <section id="about" className="w-full border-t border-border-subtle">
+      <div className="max-w-7xl mx-auto py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column: Portrait & Double-Bezel Media Card */}
         <div className="lg:col-span-5">

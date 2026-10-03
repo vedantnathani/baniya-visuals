@@ -54,7 +54,8 @@ const notes: NoteCard[] = [
 
 export default function ScrollNotes() {
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-border-subtle overflow-hidden">
+    <section className="w-full border-t border-border-subtle overflow-hidden">
+      <div className="max-w-7xl mx-auto py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
       <div className="mb-16 text-center max-w-2xl mx-auto">
         <motion.div
